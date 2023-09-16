@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { Flowers } from "./Content/Flowers";
+import About from "./Sections/About";
+import { LinkedIn } from "./Content/LinkedIn";
+import { Mail } from "./Content/Mail";
 
 const Section = styled.section`
-  padding: 3rem;
-  min-height: 95vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 `;
@@ -19,7 +20,7 @@ const Quote = styled.div`
 
 const Intro = styled.div`
   left: 6rem;
-  top: 2rem;
+  top: 4rem;
   width: fit-content;
   position: relative;
   display: flex;
@@ -35,14 +36,25 @@ const ButtonContainer = styled.div`
   gap: 1rem;
 `;
 
+const BookMe = styled.a`
+  text-decoration: none;
+  background-color: #fa4a7f;
+  border-radius: 1.6875rem;
+  padding: 0.4rem 1rem;
+  color: #f5f5f7;
+  height: 2.35rem;
+  display: flex;
+  align-items: center;
+`;
+
 const Home = () => {
   return (
     <>
-      <Section>
+      <Section id="introSection">
         <Intro>
           <h1>
             <b>
-              Hi, I am Kaio! <br />
+              <span id="pink">Hi, I am Kaio!</span> <br />
               I’m a product designer.
             </b>
           </h1>
@@ -51,12 +63,15 @@ const Home = () => {
             empower.
           </h3>
           <ButtonContainer>
-            <Link
-              to={{ pathname: "http://kaio.youcanbook.me/" }}
-              target="_blank"
-            >
+            <BookMe href="http://kaio.youcanbook.me/" target="_blank">
               Book a call
-            </Link>
+            </BookMe>
+            <a href="https://www.linkedin.com/in/kaiohsdias/" target="_blank">
+              <LinkedIn />
+            </a>
+            <a href="https://www.linkedin.com/in/kaiohsdias/" target="_blank">
+              <Mail />
+            </a>
           </ButtonContainer>
         </Intro>
       </Section>
@@ -122,23 +137,24 @@ const Home = () => {
           background: "#F5F5F7",
           alignItems: "center",
         }}
+        id="aboutSection"
       >
         <h1 style={{ color: "#232846" }}>
           <b>About me</b>
         </h1>
-        <p>
-          I’ve been dedicating myself to the tech industry for over 7 years.
-          During this time, I have acquired coding skills, earned a degree in
-          Information Technology, and worked as a support analyst intern.
-          However, it is in designing digital solutions that I have truly
-          discovered my passion. My professional journey has placed me at the
-          forefront of innovation and industry best practices, as I have had the
-          privilege of working for over three years with a global technology
-          solutions company. During this period, I have collaborated with
-          renowned Brazilian brands from diverse sectors, including banking,
-          education, cosmetics, and automotive, helping them enhance their
-          digital presence.
-        </p>
+        <About />
+      </Section>
+      <Section
+        style={{
+          background: "#F5F5F7",
+          alignItems: "center",
+        }}
+        id="workSection"
+      >
+        <h1 style={{ color: "#232846" }}>
+          <b>My work</b>
+        </h1>
+        <div>// </div>
       </Section>
     </>
   );

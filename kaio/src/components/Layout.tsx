@@ -1,6 +1,7 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { Gutter } from "./Content/Gutter";
+import { useEffect, useState } from "react";
 
 const Header = styled.nav`
   position: fixed;
@@ -18,13 +19,68 @@ const Header = styled.nav`
   backdrop-filter: blur(2px);
 `;
 
+const NavList = styled.ul`
+  list-style: none;
+  display: contents;
+`;
+
+const NavItem = styled.li`
+  font-size: 0.8rem;
+
+  & a {
+    color: #f5f5f7;
+    text-decoration: none;
+  }
+`;
+
+const Logo = styled.div`
+  color: #fa4a7f;
+  font-size: 1.25rem;
+`;
+
 const Layout = () => {
+  const [showLogo, setShowLogo] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const firstSection = document.getElementById("introSection");
+      if (firstSection) {
+        const scrolledBelowFirstSection =
+          window.scrollY > firstSection.clientHeight;
+        setShowLogo(scrolledBelowFirstSection);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <Header>
-        {/* <Link to="/">Kaio</Link> */}
-        <Link to="/about">About me</Link>
-        <Link to="/work">My work</Link>
+        {showLogo && (
+          <Logo onClick={scrollToTop}>
+            <b>Kaio</b>
+          </Logo>
+        )}
+        <NavList>
+          <NavItem>
+            <a href="#aboutSection">About me</a>
+          </NavItem>
+          <NavItem className="nav-item">
+            <a href="#workSection">My work</a>
+          </NavItem>
+        </NavList>
       </Header>
 
       <Gutter />
