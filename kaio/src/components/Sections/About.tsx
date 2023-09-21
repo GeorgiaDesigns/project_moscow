@@ -2,7 +2,7 @@ import InfoContainer from "../InfoContainer";
 
 const About = () => {
   return (
-    <div style={{ paddingTop: "8rem" }}>
+    <div style={{ paddingTop: "3rem" }}>
       <InfoContainer
         text={
           <>
@@ -33,7 +33,7 @@ const About = () => {
             </p>
           </>
         }
-        imageUrl="src/assets/aboutme-1.jpg"
+        imageUrl="src/assets/aboutme-1.svg"
         isTextOnLeft={true}
       />
       <InfoContainer
@@ -60,14 +60,14 @@ const About = () => {
               <span id="pink">
                 I am particularly interested in making a positive impact on
                 society
-              </span>{" "}
+              </span>
               and would like to combine my ability to learn and adapt quickly,
               my artistic side, coding skills, and willingness for innovation
               with companies that share my commitment to this goal.
             </p>
           </>
         }
-        imageUrl="src/assets/aboutme-2.jpg"
+        imageUrl="src/assets/aboutme-2.svg"
         isTextOnLeft={false}
       />
     </div>

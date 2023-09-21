@@ -3,6 +3,8 @@ import { Flowers } from "./Content/Flowers";
 import About from "./Sections/About";
 import { LinkedIn } from "./Content/LinkedIn";
 import { Mail } from "./Content/Mail";
+import Work from "./Sections/Work";
+import Contact from "./Sections/Contact";
 
 const Section = styled.section`
   min-height: 100vh;
@@ -34,10 +36,18 @@ const ButtonContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
+
+  & a {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  > svg:hover {
+    border-color: #fa4a7f;
+  }
 `;
 
 const BookMe = styled.a`
-  text-decoration: none;
   background-color: #fa4a7f;
   border-radius: 1.6875rem;
   padding: 0.4rem 1rem;
@@ -45,6 +55,10 @@ const BookMe = styled.a`
   height: 2.35rem;
   display: flex;
   align-items: center;
+`;
+
+const Footer = styled.section`
+  min-height: 25vh;
 `;
 
 const Home = () => {
@@ -69,7 +83,12 @@ const Home = () => {
             <a href="https://www.linkedin.com/in/kaiohsdias/" target="_blank">
               <LinkedIn />
             </a>
-            <a href="https://www.linkedin.com/in/kaiohsdias/" target="_blank">
+            <a
+              title={"Copiar e-mail"}
+              onClick={() => {
+                navigator.clipboard.writeText("kaiohsdias@proton.me");
+              }}
+            >
               <Mail />
             </a>
           </ButtonContainer>
@@ -154,8 +173,11 @@ const Home = () => {
         <h1 style={{ color: "#232846" }}>
           <b>My work</b>
         </h1>
-        <div>// </div>
+        <Work />
       </Section>
+      <Footer id="footer">
+        <Contact />
+      </Footer>
     </>
   );
 };

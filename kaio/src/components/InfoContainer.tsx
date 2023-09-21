@@ -5,10 +5,10 @@ type TextContainerProps = {
 };
 
 const TextContainer = styled.div<TextContainerProps>`
-  /* Common styles for both cases */
   display: flex;
   align-items: flex-start;
   gap: 7rem;
+  padding: 0 7rem;
 
   ${({ isTextOnLeft }) =>
     isTextOnLeft &&
@@ -23,6 +23,7 @@ const TextContainer = styled.div<TextContainerProps>`
   }
 
   .text p {
+    font-size: 1rem;
     text-align: left;
   }
 
@@ -35,25 +36,8 @@ const TextContainer = styled.div<TextContainerProps>`
   }
 `;
 
-const ImgContainer = styled.div<TextContainerProps>`
-  height: 25.85rem;
-  ${({ isTextOnLeft }) =>
-    isTextOnLeft
-      ? css`
-          transform: rotate(-3.651deg);
-        `
-      : css`
-          transform: rotate(3.651deg);
-        `}
-  flex-shrink: 0;
-  padding: 1.5rem;
-  background: #f7f7f5;
-  box-shadow: 1.188px 1.188px 11.88px 0px rgba(69, 69, 104, 0.25);
-`;
-
 const Img = styled.img`
-  width: 18.925rem;
-  height: 20.925rem;
+  height: 25.85rem;
   flex-shrink: 0;
 `;
 
@@ -73,9 +57,7 @@ const InfoContainer = ({
       <div className="text">
         <p>{text}</p>
       </div>
-      <ImgContainer isTextOnLeft={isTextOnLeft}>
-        <Img src={imageUrl} alt="Image" />
-      </ImgContainer>
+      <Img src={imageUrl} alt="Image" />
     </TextContainer>
   );
 };

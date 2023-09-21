@@ -30,6 +30,11 @@ const NavItem = styled.li`
   & a {
     color: #f5f5f7;
     text-decoration: none;
+    transition: color 0.25s;
+  }
+
+  & a:hover {
+    color: #fa4a7f;
   }
 `;
 

@@ -4,7 +4,7 @@ const Wrapper = styled.div`
   width: 65%;
 `;
 
-export const Quotes = () => (
+export const Moon = () => (
   <Wrapper>
     <svg
       width="117"
