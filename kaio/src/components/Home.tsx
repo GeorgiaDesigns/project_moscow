@@ -5,6 +5,7 @@ import { LinkedIn } from "./Content/LinkedIn";
 import { Mail } from "./Content/Mail";
 import Work from "./Sections/Work";
 import Contact from "./Sections/Contact";
+import Background from "./Background";
 
 const Section = styled.section`
   min-height: 100vh;
@@ -58,13 +59,14 @@ const BookMe = styled.a`
 `;
 
 const Footer = styled.section`
-  min-height: 25vh;
+  max-height: 25vh;
 `;
 
 const Home = () => {
   return (
     <>
       <Section id="introSection">
+        <Background />
         <Intro>
           <h1>
             <b>
