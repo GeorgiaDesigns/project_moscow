@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/projects/:slug" Component={ProjectDetail} />
+          <Route path="/projects/:id" Component={ProjectDetail} />
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>
       </Routes>

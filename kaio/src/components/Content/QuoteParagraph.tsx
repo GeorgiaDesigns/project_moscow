@@ -1,10 +1,15 @@
+import { ReactNode } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 65%;
 `;
 
-export const QuoteParagraph = () => (
+type QuoteProps = {
+  children: ReactNode;
+};
+
+export const QuoteParagraph = ({ children }: QuoteProps) => (
   <Wrapper>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,6 +23,9 @@ export const QuoteParagraph = () => (
         stroke="#232846"
         stroke-width="2"
       />
+      <text x="10" y="30" fill="#232846">
+        {children}
+      </text>
     </svg>
   </Wrapper>
 );

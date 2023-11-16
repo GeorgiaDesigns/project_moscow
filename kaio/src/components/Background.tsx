@@ -3,9 +3,9 @@ import styled, { css } from "styled-components";
 const generateStyles = (numChildren: number) => {
   let styles = "";
   for (let i = 1; i <= numChildren; i++) {
-    const left = `${Math.floor(Math.random() * 100 - 11) + 10}%`;
+    const left = `${Math.floor(Math.random() * 98 - 10) + 9}%`;
     const top = `${Math.floor(Math.random() * 80 - 10) + 9}%`;
-    const size = `${Math.floor(Math.random() * (50 - 10) + 9)}`;
+    const size = `${Math.floor(Math.random() * (25 - 3) + 2)}`;
     const animationDelay = `${(i - 1) * 0.5}s`;
     styles += `
       &:nth-child(${i}) {
@@ -23,9 +23,18 @@ const generateStyles = (numChildren: number) => {
   `;
 };
 
-export const Container = styled.div`
-  position: relative;
-  height: 25vh;
+type Props = {
+  position: "top" | "bottom";
+};
+
+export const Container = styled.div<Props>`
+  position: absolute;
+  height: inherit;
+  width: -webkit-fill-available;
+  z-index: -10;
+  background: #232846;
+
+  ${({ position }) => position === "top" && "top: 0;"}
 `;
 
 export const Star = styled.svg`
@@ -46,8 +55,9 @@ export const Star = styled.svg`
   }
 `;
 
-const Background = () => {
+const Background = ({ position }: Props) => {
   const stars = [];
+
   for (let i = 0; i < 30; i++) {
     const key = `div-${i}`;
 
@@ -65,7 +75,7 @@ const Background = () => {
       </Star>
     );
   }
-  return <Container>{stars}</Container>;
+  return <Container position={position}>{stars}</Container>;
 };
 
 export default Background;

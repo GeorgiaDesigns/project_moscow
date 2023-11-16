@@ -4,13 +4,15 @@ import About from "./Sections/About";
 import { LinkedIn } from "./Content/LinkedIn";
 import { Mail } from "./Content/Mail";
 import Work from "./Sections/Work";
-import Contact from "./Sections/Contact";
+import { Gutter } from "./Content/Gutter";
 import Background from "./Background";
+import Nav from "./Nav";
 
 const Section = styled.section`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 `;
 
 const Quote = styled.div`
@@ -23,13 +25,12 @@ const Quote = styled.div`
 
 const Intro = styled.div`
   left: 6rem;
-  top: 4rem;
-  width: fit-content;
   position: relative;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   color: #f5f5f7;
+  z-index: 5;
 `;
 
 const ButtonContainer = styled.div`
@@ -56,17 +57,20 @@ const BookMe = styled.a`
   height: 2.35rem;
   display: flex;
   align-items: center;
-`;
+  transition: background-color 0.25s;
 
-const Footer = styled.section`
-  max-height: 25vh;
+  &:hover {
+    background-color: #f5f5f7;
+    color: #fa4a7f;
+  }
 `;
 
 const Home = () => {
   return (
     <>
-      <Section id="introSection">
-        <Background />
+      <Nav headerList={["About me", "My work"]} />
+
+      <Section id="section0" style={{ background: "#232846" }}>
         <Intro>
           <h1>
             <b>
@@ -83,7 +87,7 @@ const Home = () => {
               Book a call
             </BookMe>
             <a href="https://www.linkedin.com/in/kaiohsdias/" target="_blank">
-              <LinkedIn />
+              <LinkedIn hasOutline />
             </a>
             <a
               title={"Copiar e-mail"}
@@ -91,12 +95,14 @@ const Home = () => {
                 navigator.clipboard.writeText("kaiohsdias@proton.me");
               }}
             >
-              <Mail />
+              <Mail hasOutline />
             </a>
           </ButtonContainer>
         </Intro>
+        <Gutter />
+        <Background position={"top"} />
       </Section>
-      <Section style={{ background: "#F5F5F7", paddingTop: "8rem" }}>
+      <Section>
         <Quote>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -127,38 +133,40 @@ const Home = () => {
         }}
       >
         <Flowers />
-        <button>
-          Resume
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="26"
-            viewBox="0 0 25 26"
-            fill="none"
-          >
-            <path
-              d="M12.5 4.875V19.4583"
-              stroke="#FA4A7F"
-              stroke-width="4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M19.7923 12.1666L12.5007 19.4583L5.20898 12.1666"
-              stroke="#FA4A7F"
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
+        <a href="./src/assets/Resume.pdf" download="Resume_KaioDias.pdf">
+          <button>
+            Resume
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="26"
+              viewBox="0 0 25 26"
+              fill="none"
+            >
+              <path
+                d="M12.5 4.875V19.4583"
+                stroke="#FA4A7F"
+                stroke-width="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M19.7923 12.1666L12.5007 19.4583L5.20898 12.1666"
+                stroke="#FA4A7F"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </a>
       </Section>
       <Section
         style={{
           background: "#F5F5F7",
           alignItems: "center",
         }}
-        id="aboutSection"
+        id="section1"
       >
         <h1 style={{ color: "#232846" }}>
           <b>About me</b>
@@ -168,18 +176,16 @@ const Home = () => {
       <Section
         style={{
           background: "#F5F5F7",
+          display: "flex",
           alignItems: "center",
         }}
-        id="workSection"
+        id="section2"
       >
         <h1 style={{ color: "#232846" }}>
           <b>My work</b>
         </h1>
         <Work />
       </Section>
-      <Footer id="footer">
-        <Contact />
-      </Footer>
     </>
   );
 };

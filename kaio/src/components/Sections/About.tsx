@@ -24,7 +24,7 @@ const About = () => {
               innovation and industry best practices, as
               <span id="pink">
                 I have had the privilege of working for over three years with a
-                global technology solutions company.{" "}
+                global technology solutions company.
               </span>
               During this period, I have collaborated with renowned Brazilian
               brands from diverse sectors, including banking, education,
