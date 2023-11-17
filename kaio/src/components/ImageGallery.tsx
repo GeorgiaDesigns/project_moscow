@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Image } from "../types/content";
 import ImageContent from "./ImageContent";
 

@@ -23,6 +23,15 @@ export const LinkedIn = ({ hasOutline, size }: IconProps) => (
       viewBox="0 0 24 24"
       fill="none"
     >
+      {hasOutline && (
+        <circle
+          cx="27"
+          cy="27"
+          r="26.4528"
+          stroke="#F5F5F7"
+          stroke-width="1.09434"
+        />
+      )}
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
@@ -43,15 +52,6 @@ export const LinkedIn = ({ hasOutline, size }: IconProps) => (
       viewBox="0 0 54 54"
       fill="none"
     >
-      {hasOutline && (
-        <circle
-          cx="27"
-          cy="27"
-          r="26.4528"
-          stroke="#F5F5F7"
-          stroke-width="1.09434"
-        />
-      )}
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"

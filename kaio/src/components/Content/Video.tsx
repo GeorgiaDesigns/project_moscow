@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 type IconProps = {
-  hasOutline?: boolean;
   size?: "small" | "large";
 };
 
@@ -14,7 +13,7 @@ const Wrapper = styled.div<IconProps>`
       : "width: 100%;"}
 `;
 
-export const Video = ({ hasOutline, size }: IconProps) => (
+export const Video = ({ size }: IconProps) => (
   <Wrapper size={size}>
     {/* <svg
       xmlns="http://www.w3.org/2000/svg"
