@@ -133,7 +133,7 @@ const Home = () => {
         }}
       >
         <Flowers />
-        <a href="./src/assets/Resume.pdf" download="Resume_KaioDias.pdf">
+        <a href="./assets/Resume.pdf" download="Resume_KaioDias.pdf">
           <button>
             Resume
             <svg

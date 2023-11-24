@@ -6,11 +6,11 @@ export const Projects: Project[] = [
     title: "Academic Planning Solution for a Educational Institution",
     description:
       "Within the world of educational institution management, I collaborated with a Brazilian higher education facility to collectively enhance the efficiency of the academic planning team. Our goal was to refine their methods in dealing with the high number of programs, courses, and enrollments.",
-    thumbnail: "/src/assets/APH - 1.mp4#t=25,30",
+    thumbnail: "./assets/APH - 1.mp4#t=25,30",
     content: [
       {
         type: ContentType.VIDEO,
-        data: { path: "/src/assets/APH - 1.mp4" },
+        data: { path: "./assets/APH - 1.mp4" },
       },
       {
         type: ContentType.PARAGRAPH,
@@ -57,27 +57,27 @@ export const Projects: Project[] = [
         data: [
           {
             id: 2,
-            file: "/src/assets/co-creation/1.png",
+            file: "./assets/co-creation/1.png",
           },
           {
             id: 3,
-            file: "/src/assets/co-creation/2.png",
+            file: "./assets/co-creation/2.png",
           },
           {
             id: 4,
-            file: "/src/assets/co-creation/3.png",
+            file: "./assets/co-creation/3.png",
           },
           {
             id: 5,
-            file: "/src/assets/co-creation/4.png",
+            file: "./assets/co-creation/4.png",
           },
           {
             id: 6,
-            file: "/src/assets/co-creation/5.png",
+            file: "./assets/co-creation/5.png",
           },
           {
             id: 7,
-            file: "/src/assets/co-creation/6.png",
+            file: "./assets/co-creation/6.png",
           },
         ],
       },
@@ -97,11 +97,11 @@ export const Projects: Project[] = [
         data: [
           {
             id: 8,
-            file: "/src/assets/prototype/1.png",
+            file: "./assets/prototype/1.png",
           },
           {
             id: 9,
-            file: "/src/assets/prototype/2.png",
+            file: "./assets/prototype/2.png",
           },
         ],
       },
@@ -128,7 +128,7 @@ export const Projects: Project[] = [
         type: ContentType.IMAGE,
         data: {
           id: 10,
-          file: "/src/assets/presentation.png",
+          file: "./assets/presentation.png",
         },
       },
       {
@@ -149,11 +149,11 @@ export const Projects: Project[] = [
         data: [
           {
             id: 11,
-            file: "/src/assets/changes/1.png",
+            file: "./assets/changes/1.png",
           },
           {
             id: 12,
-            file: "/src/assets/changes/2.png",
+            file: "./assets/changes/2.png",
           },
         ],
       },
@@ -168,7 +168,7 @@ export const Projects: Project[] = [
       },
       {
         type: ContentType.VIDEO,
-        data: { path: "/src/assets/APH - 1.mp4" },
+        data: { path: "./assets/APH - 1.mp4" },
       },
       {
         type: ContentType.PARAGRAPH,
@@ -180,7 +180,7 @@ export const Projects: Project[] = [
       },
       {
         type: ContentType.VIDEO,
-        data: { path: "/src/assets/APH - 1.mp4" },
+        data: { path: "./assets/APH - 1.mp4" },
       },
       {
         type: ContentType.PARAGRAPH,
@@ -215,7 +215,7 @@ export const Projects: Project[] = [
     content: [
       {
         type: ContentType.VIDEO,
-        data: { path: "/src/assets/APH - 1.mp4" },
+        data: { path: "./assets/APH - 1.mp4" },
       },
       {
         type: ContentType.PARAGRAPH,

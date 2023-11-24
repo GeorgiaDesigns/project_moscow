@@ -91,11 +91,11 @@ const Work = () => {
             </button>
           </div>
           <div style={{ position: "relative", width: "100vw" }}>
-            <BackgroundImg src={"/src/assets/desktop.png"} />
+            <BackgroundImg src={"./assets/desktop.png"} />
             <Overlay>
               <VideoContent
                 data={{
-                  path: "/src/assets/APH - 1.mp4#t=25,30",
+                  path: "./assets/APH - 1.mp4#t=25,30",
                 }}
               />
             </Overlay>
