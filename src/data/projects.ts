@@ -10,7 +10,7 @@ export const Projects: Project[] = [
     content: [
       {
         type: ContentType.VIDEO,
-        data: { path: "./src/assets/APH - 1.mp4" },
+        data: { path: "../src/assets/APH - 1.mp4" },
       },
       {
         type: ContentType.PARAGRAPH,
