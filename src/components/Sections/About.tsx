@@ -33,7 +33,7 @@ const About = () => {
             </p>
           </>
         }
-        imageUrl="./src/assets/aboutme-1.svg"
+        imageUrl="/assets/aboutme-1.svg"
         isTextOnLeft={true}
       />
       <InfoContainer
@@ -67,7 +67,7 @@ const About = () => {
             </p>
           </>
         }
-        imageUrl="./src/assets/aboutme-2.svg"
+        imageUrl="/assets/aboutme-2.svg"
         isTextOnLeft={false}
       />
     </div>
