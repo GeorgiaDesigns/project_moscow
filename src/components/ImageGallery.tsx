@@ -1,54 +1,13 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { useState } from "react";
 import { Image } from "../types/content";
-import ImageContent from "./ImageContent";
+import Carousel from "react-simply-carousel";
+import { ArrowDown } from "./Content/ArrowDown";
 
-type TestimonialProps = {
-  left: number;
-};
-
-const GallerySlider = styled.div<TestimonialProps>`
-  display: flex;
-  overflow: hidden;
-  gap: 9rem;
-
-  img {
-    ${({ left }) =>
-      css`
-        left: -${left * 20}rem;
-      `}
-    transition: left 1s;
-    height: 33rem;
-    position: relative;
-  }
-
-  svg {
-    width: 65%;
-  }
-`;
-
-type IndicatorProps = {
-  active: boolean;
-};
-
-const Indicator = styled.button<IndicatorProps>`
-  ${({ active }) =>
-    active &&
-    css`
-      background-color: #fa4a7f;
-    `}
-
-  border-radius: 50%;
-  border-color: #fa4a7f;
-  height: 1.5rem;
-  width: 1.5rem;
-`;
-
-const IndicatorBox = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 5rem;
-  gap: 1rem;
+const Images = styled.img`
+  height: 73vh;
+  width: 83vw;
+  object-fit: scale-down;
 `;
 
 type ImageGalleryProps = {
@@ -56,35 +15,61 @@ type ImageGalleryProps = {
 };
 
 const ImageGallery = ({ content }: ImageGalleryProps) => {
-  const [left, setLeft] = useState(0);
-
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     setLeft(1);
-  //   }, 3000);
-
-  //   return () => {
-  //     clearInterval(intervalId);
-  //   };
-  // }, []);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   return (
-    <div>
-      <GallerySlider left={left}>
-        {content.map((q) => (
-          <ImageContent data={q} />
-        ))}
-      </GallerySlider>
-      <IndicatorBox>
-        {content.map((q) => (
-          <Indicator
-            active={left === q.id}
-            id={q.id.toString()}
-            onClick={() => setLeft(q.id)}
-          />
-        ))}
-      </IndicatorBox>
-    </div>
+    <Carousel
+      containerProps={{
+        style: {
+          width: "100%",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "1rem",
+        },
+      }}
+      preventScrollOnSwipe
+      swipeTreshold={60}
+      activeSlideIndex={activeSlide}
+      onRequestChange={setActiveSlide}
+      forwardBtnProps={{
+        children: <ArrowDown rotated size="small" />,
+        style: {
+          display: "none",
+        },
+      }}
+      backwardBtnProps={{
+        children: <ArrowDown rotated size="small" />,
+        style: {
+          display: "none",
+        },
+      }}
+      dotsNav={{
+        show: true,
+        itemBtnProps: {
+          style: {
+            borderColor: "#fa4a7f",
+            height: "1.5rem",
+            width: "1.5rem",
+            borderRadius: "50%",
+            margin: "0 0.5rem",
+          },
+        },
+        activeItemBtnProps: {
+          style: {
+            margin: "0 0.5rem",
+            backgroundColor: "#fa4a7f",
+          },
+        },
+      }}
+      itemsToShow={1}
+      itemsToScroll={1}
+      speed={400}
+      centerMode
+    >
+      {content.map((q, index) => (
+        <Images key={index} src={q.file}></Images>
+      ))}
+    </Carousel>
   );
 };
 

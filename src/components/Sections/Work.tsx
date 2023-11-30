@@ -3,6 +3,7 @@ import Testimonials from "../Testimonials";
 import { useNavigate } from "react-router-dom";
 import { Projects } from "../../data/projects";
 import VideoContent from "../VideoContent";
+import { ArrowDown } from "../Content/ArrowDown";
 
 const TextContainer = styled.div`
   display: flex;
@@ -66,28 +67,7 @@ const Work = () => {
             <p>{p.description}</p>
             <button onClick={() => redirectToProject(p.id)}>
               See more
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="26"
-                viewBox="0 0 25 26"
-                fill="none"
-              >
-                <path
-                  d="M5.20898 12.167H19.7923"
-                  stroke="#FA4A7F"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M12.5 4.87614L19.7917 12.1678L12.5 19.4595"
-                  stroke="#FA4A7F"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
+              <ArrowDown color="#f5f5f7" rotated />
             </button>
           </div>
           <div style={{ position: "relative", width: "100vw" }}>

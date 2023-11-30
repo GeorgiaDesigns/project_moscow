@@ -7,6 +7,7 @@ import Work from "./Sections/Work";
 import { Gutter } from "./Content/Gutter";
 import Background from "./Background";
 import Nav from "./Nav";
+import { ArrowDown } from "./Content/ArrowDown";
 
 const Section = styled.section`
   min-height: 100vh;
@@ -117,12 +118,12 @@ const Home = () => {
               fill="#FA4A7F"
             />
           </svg>
-          <p>
+          <h2 style={{ textAlign: "center" }}>
             We are all in the gutter, <br /> but some of us are looking at the
             stars. <br />
             <br />
             <b>Oscar Wilde</b>
-          </p>
+          </h2>
         </Quote>
       </Section>
       <Section
@@ -134,29 +135,8 @@ const Home = () => {
         <Flowers />
         <a href="/assets/Resume.pdf" download="Resume_KaioDias.pdf">
           <button>
-            Resume
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="26"
-              viewBox="0 0 25 26"
-              fill="none"
-            >
-              <path
-                d="M12.5 4.875V19.4583"
-                stroke="#FA4A7F"
-                stroke-width="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M19.7923 12.1666L12.5007 19.4583L5.20898 12.1666"
-                stroke="#FA4A7F"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <b>Resumé</b>
+            <ArrowDown color="#f5f5f7" />
           </button>
         </a>
       </Section>

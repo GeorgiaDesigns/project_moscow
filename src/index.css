@@ -106,8 +106,8 @@ button svg {
   transform: scale(0.75);
 }
 
-button:hover svg {
-  fill: #f5f5f7;
+button:hover div {
+  color: #f5f5f7;
 }
 
 button:hover {

@@ -58,10 +58,6 @@ function ProjectDetail() {
   const { id } = useParams();
   const project: Project | undefined = Projects.find((p) => p.id == id);
 
-  // const navList = project?.content
-  //   .filter((p) => p.type === ContentType.PARAGRAPH)
-  //   .map((p) => p.data.title);
-
   if (!project) {
     return;
   } else

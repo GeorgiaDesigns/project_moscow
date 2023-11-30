@@ -28,8 +28,12 @@ type Props = {
 };
 
 export const Container = styled.div<Props>`
-  position: ${({ position }) => (position === "top" ? "static" : "absolute")};
-  height: inherit;
+  ${({ position }) =>
+    position === "top"
+      ? "position:static"
+      : `position:absolute;
+      height: inherit;`};
+
   width: -webkit-fill-available;
 `;
 
