@@ -24,7 +24,7 @@ const Quote = styled.div`
 `;
 
 const Intro = styled.div`
-  left: 6rem;
+  margin-left: 6vw;
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -35,17 +35,15 @@ const Intro = styled.div`
 
 const ButtonContainer = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  align-items: flex-end;
 
   & a {
     cursor: pointer;
     text-decoration: none;
   }
 
-  > svg:hover {
-    border-color: #fa4a7f;
+  & svg {
+    scale: 0.8;
   }
 `;
 
@@ -57,7 +55,8 @@ const BookMe = styled.a`
   height: 2.35rem;
   display: flex;
   align-items: center;
-  transition: background-color 0.25s;
+  transition: background-color 0.5s;
+  margin-right: 0.5rem;
 
   &:hover {
     background-color: #f5f5f7;
@@ -87,7 +86,7 @@ const Home = () => {
               Book a call
             </BookMe>
             <a href="https://www.linkedin.com/in/kaiohsdias/" target="_blank">
-              <LinkedIn hasOutline />
+              <LinkedIn hasOutline color="#fa4a7f" />
             </a>
             <a
               title={"Copiar e-mail"}
@@ -95,7 +94,7 @@ const Home = () => {
                 navigator.clipboard.writeText("kaiohsdias@proton.me");
               }}
             >
-              <Mail hasOutline />
+              <Mail hasOutline color="#fa4a7f" />
             </a>
           </ButtonContainer>
         </Intro>

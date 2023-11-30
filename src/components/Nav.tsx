@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const Header = styled.nav`
   position: fixed;
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 6.625rem;
   justify-content: center;
   align-items: center;
@@ -50,7 +50,7 @@ const Nav = ({ headerList }: NavProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const firstSection = document.getElementById("section1");
+      const firstSection = document.getElementById("section0");
       if (firstSection) {
         const scrolledBelowFirstSection =
           window.scrollY > firstSection.clientHeight;

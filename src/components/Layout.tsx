@@ -21,7 +21,7 @@ const Layout = () => {
         </NavList>
       </Header> */}
       <Outlet />
-      <div id="footer" style={{ height: "16rem" }}>
+      <div id="footer" style={{ height: "16rem", background: "#232846" }}>
         <Background position="bottom" />
         <Contact />
       </div>

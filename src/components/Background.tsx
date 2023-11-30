@@ -28,13 +28,9 @@ type Props = {
 };
 
 export const Container = styled.div<Props>`
-  position: absolute;
+  position: ${({ position }) => (position === "top" ? "static" : "absolute")};
   height: inherit;
   width: -webkit-fill-available;
-  z-index: -10;
-  background: #232846;
-
-  ${({ position }) => position === "top" && "top: 0;"}
 `;
 
 export const Star = styled.svg`
