@@ -6,7 +6,6 @@ import { Mail } from "./Content/Mail";
 import Work from "./Sections/Work";
 import { Gutter } from "./Content/Gutter";
 import Background from "./Background";
-import Nav from "./Nav";
 import { ArrowDown } from "./Content/ArrowDown";
 
 const Section = styled.section`
@@ -68,8 +67,6 @@ const BookMe = styled.a`
 const Home = () => {
   return (
     <>
-      <Nav headerList={["About me", "My work"]} />
-
       <Section id="section0" style={{ background: "#232846" }}>
         <Intro>
           <h1>

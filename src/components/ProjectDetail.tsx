@@ -11,7 +11,6 @@ import {
 import ImageContent from "./ImageContent";
 import ParagraphContent from "./Paragraph";
 import VideoContent from "./VideoContent";
-import Nav from "./Nav";
 import ImageGallery from "./ImageGallery";
 import Background from "./Background";
 
@@ -63,7 +62,7 @@ function ProjectDetail() {
   } else
     return (
       <>
-        <Nav
+        {/* <Nav
           headerList={[
             "Overview",
             "Challenges",
@@ -71,7 +70,7 @@ function ProjectDetail() {
             "Challenges Faced",
             "Solutions",
           ]}
-        />
+        /> */}
         <Header>
           <Background position="top" />
 
