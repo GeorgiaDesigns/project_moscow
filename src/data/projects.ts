@@ -215,7 +215,7 @@ export const Projects: Project[] = [
     content: [
       {
         type: ContentType.VIDEO,
-        data: { path: "/assets/APH - 1.mp4" },
+        data: { path: "/assets/SOR.mp4" },
       },
       {
         type: ContentType.PARAGRAPH,
@@ -231,18 +231,12 @@ export const Projects: Project[] = [
       {
         type: ContentType.PARAGRAPH,
         data: {
-          title: "Challenges",
+          title: "Our Challenges",
           text: [
-            "The project kicked off by addressing several critical challenges. Franchisees were grappling with an unstandardized analysis process, resorting to manual Excel spreadsheets. This outdated method resulted in inefficiencies, errors, and often a misjudgment of the quantities needed. Adding to the complexity, the launch of new products posed a unique issue, as there was no historical sales data available. This necessitated time-consuming manual comparisons between product catalogs and historical spreadsheets.",
-          ],
-        },
-      },
-      {
-        type: ContentType.PARAGRAPH,
-        data: {
-          title: "Solutions Implemented",
-          text: [
-            "In response, we developed an intuitive online platform, providing franchisees with a central hub for all their ordering needs. The heart of the platform is a meticulously designed table, allowing franchisees to select quantities with ease. The innovative 'Smart Purchasing' algorithm provides data-driven suggestions, considering historical sales, promotions, and more. Our solution evolved over time, accommodating a wide array of order types - weekly, cyclical, new product launches, and kits, each with a tailored strategy.",
+            "The company sought to address several issues within the existing stock replenishment process and modernize it without a complete restructuring. Franchises were struggling with an unstandardized analysis and ordering process, relying on manual Excel spreadsheets fed by personal formulas. This outdated method led to inefficiencies and often resulted in misjudgments of the quantities needed.",
+            "Later, we expanded our scope to include additional orders beyond regular stock replenishment. This encompassed orders for product launches and kits, each presenting unique challenges. For example, the launch order lacked sales history data for comparison, creating a distinctive challenge.",
+            "Moreover, as the company owned multiple brands, each with its unique characteristics, analyzing stock replenishment needed to consider brand-specific nuances, adding complexity to the analysis. Additionally, orders could be placed based on different sales horizons, further complicating the overall process.",
+            "In addressing these complexities, our mission extended beyond modernization; it involved developing a comprehensive solution that met the diverse needs of franchisees, streamlined processes, and accommodated the complexities inherent in the company's multifaceted structure.",
           ],
         },
       },
@@ -251,25 +245,61 @@ export const Projects: Project[] = [
         data: {
           title: "Design Process",
           text: [
-            "Our design process was collaborative and iterative, with a continuous discovery phase. Regular meetings with stakeholders and co-creation exercises allowed us to gather critical insights. Usability testing ensured that our design choices aligned with user expectations. We meticulously planned each sprint, with pages organized to correspond to the development cycle, making the hand-off to the development team seamless.",
+            "Our design process was characterized by collaboration and iteration, rooted in a continuous discovery approach that unfolded throughout the project. It commenced with an initial research phase, followed by a persistent exploration and refinement, adapting to the ever-evolving requirements.",
           ],
         },
       },
       {
         type: ContentType.PARAGRAPH,
         data: {
-          subtitle: "User Testing and Feedback",
+          subtitle: "Framework and Agile Methodology",
           text: [
-            "User feedback played a pivotal role in shaping the project. Testing and feedback sessions resulted in overwhelmingly positive responses. Franchisees praised the platform for its efficiency, accuracy, and the ease with which orders could be placed. The Smart Purchasing algorithm, once met with skepticism, had now earned the trust of franchisees.",
+            "We embraced a continuous discovery approach, aligning with an agile methodology similar to Scrum, emphasizing scalable agile practices. Our project unfolded through structured sprints, each spanning a two-week period. Within these sprints, tasks were delineated, involving both developers and designers, with a flexible backlog prioritized in collaboration with the Product Owner (PO).",
           ],
         },
       },
       {
         type: ContentType.PARAGRAPH,
         data: {
-          subtitle: "Enhancements and User Experience Improvements",
+          subtitle: "Co-Creation Sessions and Prototyping",
           text: [
-            "As the project progressed, we introduced several features to streamline the ordering process. Product images, historical data, and reliable status indicators were added to improve the user experience. The system centralized essential information and facilitated data-driven decisions. The system's effectiveness was immediately recognized, saving time and reducing the margin of error.",
+            "To bridge understanding and foster insights, co-creation sessions were conducted in Miro. Prototypes, integral to the design process, were meticulously crafted in Figma, with the Figma file thoughtfully organized for developer clarity. The collaboration extended to sprint reviews, where stakeholders were provided a comprehensive overview of each sprint's progress.",
+          ],
+        },
+      },
+      {
+        type: ContentType.PARAGRAPH,
+        data: {
+          subtitle: "Iterative Solution Development",
+          text: [
+            "Problem-solving necessitated thoughtful solutions, often manifested through iterative prototyping. The refined prototypes were eventually translated into the web-based tool, seamlessly integrating user insights and stakeholder perspectives.",
+          ],
+        },
+      },
+      {
+        type: ContentType.PARAGRAPH,
+        data: {
+          subtitle: "Quality Assurance and Usability Testing",
+          text: [
+            "Prior to deployment, our dedicated Quality Assurance (Q&A) testing, facilitated by meticulous tracking on Jira, ensured the precise implementation of envisioned features. Usability testing with franchisees played a pivotal role, guiding adjustments and enhancements.",
+          ],
+        },
+      },
+      {
+        type: ContentType.PARAGRAPH,
+        data: {
+          subtitle: "Post-Implementation Engagement",
+          text: [
+            "Post-implementation, our engagement persisted as we closely monitored user interaction, seeking feedback on product engagement and identifying areas for improvement. This ongoing dialogue ensured the evolving product resonated with users and continuously adapted to their needs, especially considering the initial stages as an MVP.",
+          ],
+        },
+      },
+      {
+        type: ContentType.PARAGRAPH,
+        data: {
+          title: "Final Solution",
+          text: [
+            "In response, we developed an intuitive online platform, providing franchisees with a central hub for all their ordering needs. The heart of the platform is a meticulously designed table, allowing franchisees to select quantities with ease. The innovative 'Smart Purchasing' algorithm provides data-driven suggestions, considering historical sales, promotions, and more. Our solution evolved over time, accommodating a wide array of order types - weekly, cyclical, new product launches, and kits, each with a tailored strategy.",
           ],
         },
       },
@@ -279,15 +309,6 @@ export const Projects: Project[] = [
           title: "Key Learnings",
           text: [
             "This project was a profound learning experience. Auto-layout, atomic design principles, usability testing, and collaborative design tools, such as Figma and Miro, played pivotal roles in its success. We embraced the power of a design system and a style guide to maintain consistency throughout the platform.",
-          ],
-        },
-      },
-      {
-        type: ContentType.PARAGRAPH,
-        data: {
-          title: "Conclusion",
-          text: [
-            "The impact of this project has been overwhelmingly positive. Franchisees now have a reliable tool at their disposal, one that optimizes their stock replenishment process and bolsters their confidence in ordering decisions. This innovative solution has significantly streamlined the cosmetics group's operations, enhancing franchisee satisfaction and profitability.",
           ],
         },
       },

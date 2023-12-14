@@ -75,7 +75,7 @@ const Work = () => {
             <Overlay>
               <VideoContent
                 data={{
-                  path: "./assets/APH - 1.mp4#t=25,30",
+                  path: p.thumbnail,
                 }}
               />
             </Overlay>
