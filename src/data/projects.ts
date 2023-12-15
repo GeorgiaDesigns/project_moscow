@@ -210,8 +210,7 @@ export const Projects: Project[] = [
     title: "Stock Replenishment Solution for Leading Cosmetics Group",
     description:
       "Stepping into the world of cosmetics sales, I worked on a project to optimize stock replenishment for a leading cosmetics group. The challenge was addressing product availability and surplus issues, enabling efficient stock management for franchisees.",
-    thumbnail:
-      "https://s3-alpha-sig.figma.com/img/758f/fb52/e73cea5769c0e08799a765e805a4e9bc?Expires=1698624000&Signature=Xa6TwevXRK8E3g69l5vtSNEEz1XQWnGkJ563nXCHcQAqn9Jv3y2waNGr49AXsY1BO9PUjC~ca2RJ6QCtoKwOcQLsa~8UtbyMmm3WYuIRsUoy0utkmwiEGD-GcWVVP5TRyw0l8FV8rCxgk~Cz5YhTIG3zJMBA3kq7MqKm2XOCtTPqK5w06ab3uSM43dYMdJy6XL7NxElMW-KTWSkdPxcyrJxYDcMopuzwF3~pc3889inxiqPR9m3DjfzgE~~u8QuX7qmyjKk8~W5jacgtUVoWge3b-g6dky1czdAePxll7DdQsHZ4bkfjGEnuRdRVnVuDH5IoZAHEPaJYcbnQGvjSTA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+    thumbnail: "/assets/SOR.mp4",
     content: [
       {
         type: ContentType.VIDEO,
