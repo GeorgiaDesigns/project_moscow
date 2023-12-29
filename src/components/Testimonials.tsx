@@ -4,7 +4,7 @@ import { Woman } from "./Content/Woman";
 import { Quotes } from "./Content/Quotes";
 import { Testimonial1 } from "./Content/Testimonials-1";
 import { Testimonial2 } from "./Content/Testimonials-2";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type TestimonialProps = {
   left: number;
@@ -20,13 +20,13 @@ type TestimonialProps = {
 const Testimonial = styled.div<TestimonialProps>`
   ${({ left }) =>
     css`
-      left: -${left * 115}%;
+      left: -${left * 120}%;
     `}
   transition: left 1s;
   display: flex;
   overflow: hidden;
   position: relative;
-  width: 150rem;
+  width: 200vw;
 
   svg {
     width: 65%;
@@ -91,15 +91,15 @@ const quotes: Quotes[] = [
 const Testimonials = () => {
   const [left, setLeft] = useState(0);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setLeft(1);
-    }, 3000);
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     setLeft(1);
+  //   }, 3000);
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+  //   return () => {
+  //     clearInterval(intervalId);
+  //   };
+  // }, []);
 
   return (
     <div style={{ width: "65rem" }}>
