@@ -7,25 +7,12 @@ type TextContainerProps = {
 const TextContainer = styled.div<TextContainerProps>`
   display: flex;
   align-items: flex-start;
-  gap: 7rem;
-  padding: 0 7rem;
 
   ${({ isTextOnLeft }) =>
     isTextOnLeft &&
     css`
       flex-direction: row-reverse;
     `}
-
-  .text {
-    flex: 1;
-    padding: 20px;
-    max-width: 51rem;
-  }
-
-  .text p {
-    font-size: 1rem;
-    text-align: left;
-  }
 
   .image {
     flex: 1;

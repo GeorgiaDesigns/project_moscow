@@ -35,17 +35,16 @@ body {
   min-width: 320px;
   min-height: 100vh; */
 }
-
+/* 
 h1 {
   font-family: inherit;
   font-size: 3rem;
   font-style: normal;
   font-weight: 800;
-  line-height: 150%; /* 5.625rem */
-  letter-spacing: 0.05625rem;
-}
+  line-height: 150%; 
+  letter-spacing: 0.05625rem; */
 
-#dark {
+/* #dark {
   color: #232846;
 }
 
@@ -53,9 +52,8 @@ h2 {
   font-family: inherit;
   font-style: normal;
   color: #232846;
-  font-size: 1.75rem;
   font-weight: 600;
-  line-height: 128.5%; /* 2.40938rem */
+  line-height: 128.5%; 
   letter-spacing: 0.02813rem;
   text-align: left;
 }
@@ -66,9 +64,9 @@ p {
   font-size: 0.8rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 200%; /* 2.25rem */
+  line-height: 200%;
   letter-spacing: 0.01688rem;
-}
+} */
 
 a {
   display: flex;
@@ -76,6 +74,12 @@ a {
   align-items: center;
   text-decoration: none;
   max-height: 2rem;
+  color: #f5f5f7;
+  transition: color 0.25s;
+}
+
+a:hover {
+  color: #fa4a7f;
 }
 
 b {

@@ -5,8 +5,10 @@ import { LinkedIn } from "./Content/LinkedIn";
 import { Mail } from "./Content/Mail";
 import Work from "./Sections/Work";
 import { Gutter } from "./Content/Gutter";
-import Background from "./Background";
 import { ArrowDown } from "./Content/ArrowDown";
+import Font from "./Typography";
+import Background from "./Background";
+import Contact from "./Sections/Contact";
 
 const Grid = styled.div`
   display: grid;
@@ -17,10 +19,11 @@ const Grid = styled.div`
 
 const Section = styled.section`
   grid-column: span 5;
-  min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  padding-top: 6rem;
 `;
 
 const Quote = styled.div`
@@ -85,16 +88,16 @@ const Home = () => {
 
       <Section id="section0">
         <Intro>
-          <h1>
-            <b>
-              <span id="pink">Hi, I am Kaio!</span> <br />
-              I’m a product designer.
-            </b>
-          </h1>
-          <h3>
+          <Font family="bold" size="lg" color="primaryLight">
+            <span id="pink">Hi, I am Kaio!</span> <br />
+            I’m a product designer.
+          </Font>
+
+          <Font size="sm" color="primaryLight">
             I design human-centered digital solutions that <br /> inspire and
             empower.
-          </h3>
+          </Font>
+
           <ButtonContainer>
             <BookMe href="http://kaio.youcanbook.me/" target="_blank">
               Book a call
@@ -129,19 +132,21 @@ const Home = () => {
               fill="#FA4A7F"
             />
           </svg>
-          <h2 style={{ textAlign: "center" }}>
-            We are all in the gutter, <br /> but some of us are looking at the
-            stars. <br />
-            <br />
-            <b>Oscar Wilde</b>
-          </h2>
+          <div>
+            <Font size="sm" align="center">
+              We are all in the gutter, <br /> but some of us are looking at the
+              stars.
+            </Font>
+            <Font family="bold" size="sm" align="center">
+              Oscar Wilde
+            </Font>
+          </div>
         </Quote>
       </Section>
       <Section
-      // style={{
-      //   background: "#F5F5F7",
-      //   alignItems: "center",
-      // }}
+        style={{
+          alignItems: "center",
+        }}
       >
         <Flowers />
         <a href="/assets/Resume.pdf" download="Resume_KaioDias.pdf">
@@ -151,29 +156,21 @@ const Home = () => {
           </button>
         </a>
       </Section>
-      <Section
-        // style={{
-        //   background: "#F5F5F7",
-        //   alignItems: "center",
-        // }}
-        id="section1"
-      >
-        <h1 style={{ color: "#232846" }}>
-          <b>About me</b>
-        </h1>
+      <Section id="section1">
+        <Font family="bold" size="lg" align="center">
+          About me
+        </Font>
         <About />
       </Section>
-      <Section
-        // style={{
-        //   background: "#F5F5F7",
-        //   alignItems: "center",
-        // }}
-        id="section2"
-      >
-        <h1 style={{ color: "#232846" }}>
-          <b>My work</b>
-        </h1>
+      <Section id="section2">
+        <Font family="bold" size="lg" align="center">
+          My work
+        </Font>
         <Work />
+      </Section>
+      <Section id="footer" style={{ height: "16rem" }}>
+        <Contact />
+        <Background position="bottom" />
       </Section>
     </Grid>
   );

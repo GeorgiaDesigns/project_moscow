@@ -1,4 +1,5 @@
 import InfoContainer from "../InfoContainer";
+import Font from "../Typography";
 
 const About = () => {
   return (
@@ -6,7 +7,7 @@ const About = () => {
       <InfoContainer
         text={
           <>
-            <p>
+            <Font size="xxsm" lineHeight="giant">
               <span id="pink">
                 I’ve been dedicating myself to the tech industry for over 7
                 years.
@@ -18,8 +19,8 @@ const About = () => {
                 it is in designing digital solutions that I have truly
                 discovered my passion.
               </span>
-            </p>
-            <p>
+            </Font>
+            <Font size="xxsm" lineHeight="giant">
               My professional journey has placed me at the forefront of
               innovation and industry best practices, as
               <span id="pink">
@@ -30,7 +31,7 @@ const About = () => {
               brands from diverse sectors, including banking, education,
               cosmetics, and automotive, helping them enhance their digital
               presence.
-            </p>
+            </Font>
           </>
         }
         imageUrl="/assets/aboutme-1.svg"
@@ -39,7 +40,7 @@ const About = () => {
       <InfoContainer
         text={
           <>
-            <p>
+            <Font size="xxsm" lineHeight="giant">
               <span id="pink">
                 I am driven by the excitement of new experiences.
               </span>
@@ -52,8 +53,8 @@ const About = () => {
               not only an opportunity to discover new places but also a chance
               to connect with nature, as music continually serves as a source of
               inspiration for me.
-            </p>
-            <p>
+            </Font>
+            <Font size="xxsm" lineHeight="giant">
               This eagerness for novelty permeates my professional life as well.
               <span id="pink">I am known for always taking on challenges</span>
               and embarking on projects, even if they are unfamiliar territory.
@@ -64,7 +65,7 @@ const About = () => {
               and would like to combine my ability to learn and adapt quickly,
               my artistic side, coding skills, and willingness for innovation
               with companies that share my commitment to this goal.
-            </p>
+            </Font>
           </>
         }
         imageUrl="/assets/aboutme-2.svg"

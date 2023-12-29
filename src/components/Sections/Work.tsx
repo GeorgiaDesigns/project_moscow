@@ -4,13 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { Projects } from "../../data/projects";
 import VideoContent from "../VideoContent";
 import { ArrowDown } from "../Content/ArrowDown";
+import Font from "../Typography";
 
 const TextContainer = styled.div`
   display: flex;
   align-items: flex-start;
-  max-width: 82vw;
-  margin: 0 auto;
-  gap: 3.75rem;
+  gap: 3rem;
   padding: 5rem 0;
 
   &:nth-of-type(odd) {
@@ -18,14 +17,7 @@ const TextContainer = styled.div`
   }
 
   .text {
-    width: 80%;
-  }
-
-  .text p {
-    font-size: 0.8rem;
-    text-align: left;
-    padding-top: 0.5rem;
-    padding-bottom: 1.75rem;
+    width: 85%;
   }
 `;
 
@@ -45,14 +37,6 @@ const BackgroundImg = styled.img`
   display: block;
 `;
 
-const Review = styled.div`
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-`;
-
 const Work = () => {
   const navigate = useNavigate();
   const redirectToProject = (id: string | number) =>
@@ -63,8 +47,14 @@ const Work = () => {
       {Projects.map((p) => (
         <TextContainer>
           <div className="text">
-            <h2>{p.title}</h2>
-            <p>{p.description}</p>
+            <Font family="bold" size="sm" lineHeight="giant">
+              {p.title}
+            </Font>
+
+            <Font size="xxsm" lineHeight="giant" color="primaryDark">
+              {p.description}
+            </Font>
+
             <button onClick={() => redirectToProject(p.id)}>
               See more
               <ArrowDown color="#f5f5f7" rotated />
@@ -82,10 +72,10 @@ const Work = () => {
           </div>
         </TextContainer>
       ))}
-      <Review>
-        <h2>What people are saying</h2>
+      <div>
+        <Font size="sm">What people are saying</Font>
         <Testimonials />
-      </Review>
+      </div>
     </div>
   );
 };
