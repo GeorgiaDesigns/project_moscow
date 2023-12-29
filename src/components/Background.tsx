@@ -33,7 +33,7 @@ export const Container = styled.div<Props>`
       ? "position:static"
       : `position:absolute;
       height: inherit;`};
-
+  background: #232846;
   width: -webkit-fill-available;
 `;
 

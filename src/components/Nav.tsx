@@ -47,6 +47,12 @@ type NavProps = {
 
 const Nav = ({ headerList }: NavProps) => {
   const [showLogo, setShowLogo] = useState(false);
+  const scrollToSection = (id: string) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,7 +89,11 @@ const Nav = ({ headerList }: NavProps) => {
         <NavList>
           {headerList.map((h, i) => (
             <NavItem key={i}>
-              <a href={"#section" + (i + 1)}>{h}</a>
+              <div key={i} onClick={() => scrollToSection(`#section${i + 1}`)}>
+                {h}
+              </div>
+
+              {/* <a href={"#section" + (i + 1)}>{h}</a> */}
             </NavItem>
           ))}
         </NavList>

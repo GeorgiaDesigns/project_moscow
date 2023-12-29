@@ -8,8 +8,16 @@ import { Gutter } from "./Content/Gutter";
 import Background from "./Background";
 import { ArrowDown } from "./Content/ArrowDown";
 
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 12.08%);
+  gap: 3.125%;
+  justify-content: center;
+`;
+
 const Section = styled.section`
-  min-height: 100vh;
+  grid-column: span 5;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,13 +31,16 @@ const Quote = styled.div`
   gap: 1rem;
 `;
 
-const Intro = styled.div`
-  margin-left: 6vw;
-  position: relative;
+const Fundo = styled.div`
+  width: 100%;
+  position: absolute;
+  background: #232846;
   display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  color: #f5f5f7;
+  flex-direction: column-reverse;
+  padding-top: 10rem;
+`;
+
+const Intro = styled.div`
   z-index: 5;
 `;
 
@@ -66,8 +77,13 @@ const BookMe = styled.a`
 
 const Home = () => {
   return (
-    <>
-      <Section id="section0" style={{ background: "#232846" }}>
+    <Grid>
+      <Fundo>
+        <Gutter />
+        <Background position={"top"} />
+      </Fundo>
+
+      <Section id="section0">
         <Intro>
           <h1>
             <b>
@@ -96,8 +112,6 @@ const Home = () => {
             </a>
           </ButtonContainer>
         </Intro>
-        <Gutter />
-        <Background position={"top"} />
       </Section>
       <Section>
         <Quote>
@@ -124,10 +138,10 @@ const Home = () => {
         </Quote>
       </Section>
       <Section
-        style={{
-          background: "#F5F5F7",
-          alignItems: "center",
-        }}
+      // style={{
+      //   background: "#F5F5F7",
+      //   alignItems: "center",
+      // }}
       >
         <Flowers />
         <a href="/assets/Resume.pdf" download="Resume_KaioDias.pdf">
@@ -138,10 +152,10 @@ const Home = () => {
         </a>
       </Section>
       <Section
-        style={{
-          background: "#F5F5F7",
-          alignItems: "center",
-        }}
+        // style={{
+        //   background: "#F5F5F7",
+        //   alignItems: "center",
+        // }}
         id="section1"
       >
         <h1 style={{ color: "#232846" }}>
@@ -150,11 +164,10 @@ const Home = () => {
         <About />
       </Section>
       <Section
-        style={{
-          background: "#F5F5F7",
-          display: "flex",
-          alignItems: "center",
-        }}
+        // style={{
+        //   background: "#F5F5F7",
+        //   alignItems: "center",
+        // }}
         id="section2"
       >
         <h1 style={{ color: "#232846" }}>
@@ -162,7 +175,7 @@ const Home = () => {
         </h1>
         <Work />
       </Section>
-    </>
+    </Grid>
   );
 };
 
