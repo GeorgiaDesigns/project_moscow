@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Paragraph } from "../types/content";
+import Font from "./Typography";
 
 type ParagraphProps = {
   data: Paragraph;
@@ -12,7 +13,7 @@ const TextContainer = styled.div`
     text-align: left;
   }
 `;
-const Testimonial = styled.p`
+const Testimonial = styled(Font)`
   padding: 0 5rem;
 `;
 
@@ -20,14 +21,14 @@ const ParagraphContent = ({ data }: ParagraphProps) => {
   return (
     <TextContainer>
       {data.title && (
-        <h2>
-          <b>{data.title}</b>
-        </h2>
+        <Font family="bold" size="sm">
+          {data.title}
+        </Font>
       )}
       {data.subtitle && (
-        <p>
-          <b>{data.subtitle}</b>
-        </p>
+        <Font family="bold" size="xxsm">
+          {data.subtitle}
+        </Font>
       )}
       {data.testimonial ? (
         <Testimonial>
@@ -39,14 +40,14 @@ const ParagraphContent = ({ data }: ParagraphProps) => {
           ))}
         </Testimonial>
       ) : (
-        <p>
+        <Font size="xxsm" lineHeight="giant">
           {data.text.map((str, index) => (
             <div key={index}>
               {str} <br />
               <br />
             </div>
           ))}
-        </p>
+        </Font>
       )}
     </TextContainer>
   );

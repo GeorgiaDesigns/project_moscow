@@ -5,8 +5,7 @@ import Carousel from "react-simply-carousel";
 import { ArrowDown } from "./Content/ArrowDown";
 
 const Images = styled.img`
-  height: 73vh;
-  width: 83vw;
+  width: 71vw;
   object-fit: scale-down;
 `;
 
@@ -22,8 +21,7 @@ const ImageGallery = ({ content }: ImageGalleryProps) => {
       containerProps={{
         style: {
           width: "100%",
-          justifyContent: "space-between",
-          alignItems: "center",
+          justifyContent: "center",
           gap: "1rem",
         },
       }}
@@ -58,6 +56,8 @@ const ImageGallery = ({ content }: ImageGalleryProps) => {
           style: {
             margin: "0 0.5rem",
             backgroundColor: "#fa4a7f",
+            height: "1.5rem",
+            width: "1.5rem",
           },
         },
       }}

@@ -22,8 +22,6 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  padding-top: 6rem;
 `;
 
 const Quote = styled.div`
@@ -40,11 +38,14 @@ const Fundo = styled.div`
   background: #232846;
   display: flex;
   flex-direction: column-reverse;
-  padding-top: 10rem;
+  padding-top: 5rem;
 `;
 
 const Intro = styled.div`
   z-index: 5;
+  padding-top: 8rem;
+
+  min-height: 80vh;
 `;
 
 const ButtonContainer = styled.div`
@@ -83,7 +84,6 @@ const Home = () => {
     <Grid>
       <Fundo>
         <Gutter />
-        <Background position={"top"} />
       </Fundo>
 
       <Section id="section0">
@@ -168,7 +168,10 @@ const Home = () => {
         </Font>
         <Work />
       </Section>
-      <Section id="footer" style={{ height: "16rem" }}>
+      <Section
+        id="footer"
+        style={{ height: "19rem", flexDirection: "initial" }}
+      >
         <Contact />
         <Background position="bottom" />
       </Section>

@@ -6,7 +6,7 @@ type TextContainerProps = {
 
 const TextContainer = styled.div<TextContainerProps>`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 
   ${({ isTextOnLeft }) =>
     isTextOnLeft &&

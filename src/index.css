@@ -90,39 +90,6 @@ span[id="pink"] {
   color: #fa4a7f;
 }
 
-button {
-  border-radius: 1.6875rem;
-  border: 2px solid #fa4a7f;
-  font-size: 0.8rem;
-  font-weight: 600;
-  font-family: inherit;
-  background-color: transparent;
-  cursor: pointer;
-  transition: background-color 0.25s;
-  color: #fa4a7f;
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-  padding: 0.3rem 0.7rem;
-}
-
-button svg {
-  transform: scale(0.75);
-}
-
-button:hover div {
-  color: #f5f5f7;
-}
-
-button:hover {
-  color: #f5f5f7;
-  background-color: #fa4a7f;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

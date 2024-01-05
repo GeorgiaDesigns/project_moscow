@@ -43,7 +43,7 @@ const Work = () => {
     navigate("/projects/" + id);
 
   return (
-    <div>
+    <>
       {Projects.map((p) => (
         <TextContainer>
           <div className="text">
@@ -76,7 +76,7 @@ const Work = () => {
         <Font size="sm">What people are saying</Font>
         <Testimonials />
       </div>
-    </div>
+    </>
   );
 };
 

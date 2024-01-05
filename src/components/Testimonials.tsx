@@ -2,8 +2,6 @@ import styled, { css } from "styled-components";
 import { Man } from "./Content/Man";
 import { Woman } from "./Content/Woman";
 import { Quotes } from "./Content/Quotes";
-import { Testimonial1 } from "./Content/Testimonials-1";
-import { Testimonial2 } from "./Content/Testimonials-2";
 import { useState } from "react";
 
 type TestimonialProps = {
@@ -20,16 +18,16 @@ type TestimonialProps = {
 const Testimonial = styled.div<TestimonialProps>`
   ${({ left }) =>
     css`
-      left: -${left * 120}%;
+      left: -${left * 70}vw;
     `}
   transition: left 1s;
   display: flex;
-  overflow: hidden;
   position: relative;
-  width: 200vw;
-
-  svg {
-    width: 65%;
+  width: 145vw;
+  justify-content: space-around;
+  & img {
+    object-fit: contain;
+    width: 48rem;
   }
 `;
 
@@ -46,13 +44,14 @@ const Indicator = styled.button<IndicatorProps>`
 
   border-radius: 50%;
   border-color: #fa4a7f;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.2rem;
+  width: 1.2rem;
 `;
 
 const IndicatorBox = styled.div`
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   height: 5rem;
   gap: 1rem;
 `;
@@ -102,10 +101,10 @@ const Testimonials = () => {
   // }, []);
 
   return (
-    <div style={{ width: "65rem" }}>
+    <div style={{ overflow: "hidden" }}>
       <Testimonial left={left}>
-        <Testimonial1 />
-        <Testimonial2 />
+        <img src="./assets/testimonial-1.png" />
+        <img src="./assets/testimonial-2.png" />
         {/* <SpeechBubble>
           <Quotes />
           <QuoteParagraph>{activeQuote?.quote}</QuoteParagraph>

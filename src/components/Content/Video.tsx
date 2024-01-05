@@ -6,11 +6,7 @@ type IconProps = {
 
 const Wrapper = styled.div<IconProps>`
   ${({ size }) =>
-    size === "small"
-      ? `scale: 0.6;`
-      : size === "large"
-      ? `scale: 1.5;`
-      : "width: 100%;"}
+    size === "small" ? `scale: 0.6;` : size === "large" && `scale: 1.5;`}
 `;
 
 export const Video = ({ size }: IconProps) => (

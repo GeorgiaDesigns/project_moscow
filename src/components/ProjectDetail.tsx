@@ -14,6 +14,8 @@ import VideoContent from "./VideoContent";
 import ImageGallery from "./ImageGallery";
 import Background from "./Background";
 import Nav from "./Nav";
+import Font from "./Typography";
+import Contact from "./Sections/Contact";
 
 const Header = styled.div`
   display: flex;
@@ -68,8 +70,6 @@ function ProjectDetail() {
     <>
       {/* <Nav headerList={headers} /> */}
       <Header>
-        <Background position="top" />
-
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="1920"
@@ -82,9 +82,9 @@ function ProjectDetail() {
       </Header>
       <GridContainer>
         <GridItem isText={false}>
-          <h1 id="dark" style={{ textAlign: "center", paddingBottom: "3rem" }}>
-            <b>{project?.title}</b>
-          </h1>
+          <Font family="bold" size="lg" align="center">
+            {project?.title}
+          </Font>
         </GridItem>
         {project?.content.map((p, i) => (
           <GridItem
@@ -107,6 +107,7 @@ function ProjectDetail() {
           </GridItem>
         ))}
       </GridContainer>
+      <Contact />
     </>
   );
 }
