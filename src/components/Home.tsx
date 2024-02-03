@@ -9,6 +9,8 @@ import Font from "./Typography";
 import Background from "./Background";
 import Contact from "./Sections/Contact";
 import Button from "./Button";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Grid = styled.div`
   display: grid;
@@ -113,11 +115,17 @@ const Home = () => {
               backgroundColor="primaryLight"
               onClick={() => {
                 navigator.clipboard.writeText("kaiohsdias@proton.me");
+                toast.success("🦄 E-mail copied!", {
+                  position: "bottom-center",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  theme: "light",
+                });
               }}
             >
-              <Mail size="small" />
+              <Mail />
             </Button>
-
             <Button
               rounded
               backgroundColor="primaryLight"
@@ -125,7 +133,7 @@ const Home = () => {
                 window.open("https://www.linkedin.com/in/kaiohsdias/", "_blank")
               }
             >
-              <LinkedIn size="small" />
+              <LinkedIn />
             </Button>
           </ButtonContainer>
         </Intro>
@@ -163,6 +171,7 @@ const Home = () => {
         }}
       >
         <Flowers />
+        <br />
         <a href="/assets/Resume.pdf" download="Resume_KaioDias.pdf">
           <Button hasIcon>Resume</Button>
         </a>
@@ -186,6 +195,15 @@ const Home = () => {
         <Contact />
         <Background position="bottom" />
       </Section>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnHover
+        theme="light"
+      />
     </Grid>
   );
 };

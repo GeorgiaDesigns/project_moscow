@@ -40,8 +40,7 @@ const BackgroundImg = styled.img`
 
 const Work = () => {
   const navigate = useNavigate();
-  const redirectToProject = (id: string | number) =>
-    navigate("/projects/" + id);
+  const redirectToProject = (id: string | number) => navigate("/" + id);
 
   return (
     <>
@@ -55,7 +54,7 @@ const Work = () => {
             <Font size="xxsm" lineHeight="giant" color="primaryDark">
               {p.description}
             </Font>
-
+            <br />
             <Button onClick={() => redirectToProject(p.id)}>
               See more
               <ArrowDown rotated size="small" />

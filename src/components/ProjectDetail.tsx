@@ -12,8 +12,6 @@ import ImageContent from "./ImageContent";
 import ParagraphContent from "./Paragraph";
 import VideoContent from "./VideoContent";
 import ImageGallery from "./ImageGallery";
-import Background from "./Background";
-import Nav from "./Nav";
 import Font from "./Typography";
 import Contact from "./Sections/Contact";
 
@@ -89,7 +87,7 @@ function ProjectDetail() {
         {project?.content.map((p, i) => (
           <GridItem
             key={i}
-            id={`section${i + 1}`}
+            id={`section${i}`}
             isText={p.type === ContentType.PARAGRAPH}
           >
             {

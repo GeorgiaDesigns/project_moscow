@@ -56,7 +56,7 @@ const IndicatorBox = styled.div`
   justify-content: center;
   align-items: flex-end;
   height: 5rem;
-  gap: 1rem;
+  gap: 0.5rem;
 `;
 
 type Quotes = {

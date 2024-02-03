@@ -69,7 +69,7 @@ export const ButtonStyle = styled.button<ButtonProps>`
     padding: 0.25rem 1rem;
     min-height: 2.35rem;
 
-    border: 2px solid ${backgroundColor && theme.colors[backgroundColor!]};
+    border: 1px solid ${backgroundColor && theme.colors[backgroundColor!]};
     border-radius: 1.6875rem;
     background-color: transparent;
     color: ${backgroundColor === "textHighlight"
@@ -77,7 +77,7 @@ export const ButtonStyle = styled.button<ButtonProps>`
       : theme.colors.primaryLight};
 
     font-family: ${theme.font.family.primary};
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-decoration: none;
 
     transition: all 0.2s ease-in-out;

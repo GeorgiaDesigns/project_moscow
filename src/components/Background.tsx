@@ -34,6 +34,7 @@ export const Container = styled.div<Props>`
       : `position:absolute;
       height: inherit;`};
   width: -webkit-fill-available;
+  z-index: -10;
 `;
 
 export const Star = styled.svg`

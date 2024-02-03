@@ -5,6 +5,8 @@ import { Mail } from "../Content/Mail";
 import { Video } from "../Content/Video";
 import Font from "../Typography";
 import Background from "../Background";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`
   display: flex;
@@ -17,9 +19,17 @@ const Container = styled.div`
   position: absolute;
   width: 100%;
   background: #232846;
+
+  & a {
+    display: flex;
+  }
 `;
 
-const Links = styled.div``;
+const Links = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+`;
 
 const Contact = () => {
   return (
@@ -31,8 +41,8 @@ const Contact = () => {
         <span id="pink">Get in touch</span>
       </Font>
 
-      <Links>
-        <Font size="xxsm" color="primaryLight">
+      <Font size="xxsm" color="primaryLight">
+        <Links>
           <a href="http://kaio.youcanbook.me/" target="_blank">
             <Video />
             kaio.youcanbook.me
@@ -41,17 +51,33 @@ const Contact = () => {
             title={"Copiar e-mail"}
             onClick={() => {
               navigator.clipboard.writeText("kaiohsdias@proton.me");
+              toast.success("🦄 E-mail copied!", {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                theme: "light",
+              });
             }}
           >
-            <Mail size="small" />
+            <Mail />
             kaiohsdias@proton.me
           </a>
           <a href="https://www.linkedin.com/in/kaiohsdias/" target="_blank">
-            <LinkedIn size="small" /> linkedin.com/in/kaiohsdias
+            <LinkedIn /> linkedin.com/in/kaiohsdias
           </a>
-        </Font>
-      </Links>
+        </Links>
+      </Font>
       <Background position="bottom" />
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnHover
+        theme="light"
+      />
     </Container>
   );
 };

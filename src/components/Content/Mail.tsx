@@ -11,7 +11,7 @@ const Wrapper = styled.div<IconProps>`
       ? `scale: 0.6;`
       : size === "large"
       ? `scale: 1.5;`
-      : "width: 100%;"}
+      : "scale: 0.8;"}
     display: flex;
   `}
 `;
