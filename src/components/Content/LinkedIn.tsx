@@ -1,34 +1,24 @@
 import styled, { css } from "styled-components";
 
 type IconProps = {
-  color?: string;
   hasOutline?: boolean;
   size?: "small" | "large";
 };
 
 const Wrapper = styled.div<IconProps>`
-  ${({ color, size }) => css`
-    size: ${size === "small"
+  ${({ size }) => css`
+    ${size === "small"
       ? `scale: 0.6;`
       : size === "large"
       ? `scale: 1.5;`
-      : "width: 100%;"};
-    color: #f5f5f7;
-    transition: color 0.5s;
-
-    &:hover {
-      color: ${color};
-    }
+      : "width: 100%;"}
+    display: flex;
   `}
 `;
 
-export const LinkedIn = ({
-  color = "#F5F5F7",
-  hasOutline,
-  size,
-}: IconProps) => {
+export const LinkedIn = ({ hasOutline, size }: IconProps) => {
   return (
-    <Wrapper color={color} size={size}>
+    <Wrapper size={size}>
       {hasOutline ? (
         <svg
           width="54"

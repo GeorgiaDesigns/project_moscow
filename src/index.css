@@ -30,43 +30,7 @@ html {
 
 body {
   margin: 0;
-  /* display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh; */
 }
-/* 
-h1 {
-  font-family: inherit;
-  font-size: 3rem;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 150%; 
-  letter-spacing: 0.05625rem; */
-
-/* #dark {
-  color: #232846;
-}
-
-h2 {
-  font-family: inherit;
-  font-style: normal;
-  color: #232846;
-  font-weight: 600;
-  line-height: 128.5%; 
-  letter-spacing: 0.02813rem;
-  text-align: left;
-}
-
-p {
-  color: #232846;
-  font-family: Poppins;
-  font-size: 0.8rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 200%;
-  letter-spacing: 0.01688rem;
-} */
 
 a {
   display: flex;
@@ -75,7 +39,6 @@ a {
   text-decoration: none;
   max-height: 2rem;
   color: #f5f5f7;
-  transition: color 0.25s;
 }
 
 a:hover {

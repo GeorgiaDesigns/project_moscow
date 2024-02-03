@@ -37,13 +37,16 @@ type IndicatorProps = {
 
 const Indicator = styled.button<IndicatorProps>`
   ${({ active }) =>
-    active &&
     css`
-      background-color: #fa4a7f;
+      ${active
+        ? ` background-color: #fa4a7f;`
+        : `  background-color: transparent;
+`}
     `}
 
+  cursor:pointer;
   border-radius: 50%;
-  border-color: #fa4a7f;
+  border: 2px solid #fa4a7f;
   height: 1.2rem;
   width: 1.2rem;
 `;

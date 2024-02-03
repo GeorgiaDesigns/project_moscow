@@ -1,31 +1,21 @@
 import styled, { css } from "styled-components";
 
 type IconProps = {
-  color?: string;
   rotated?: boolean;
   size?: "small" | "large";
 };
 
 const Wrapper = styled.div<IconProps>`
-  ${({ rotated, color, size }) => css`
-    size: ${size === "small"
-      ? `scale: 0.6;`
-      : size === "large"
-      ? `scale: 1.5;`
-      : "width: 100%;"};
-    color: #fa4a7f;
-    transition: color 0.5s;
-
-    &:hover {
-      color: ${color};
-    }
+  ${({ rotated, size }) => css`
+    ${size === "small" ? `scale: 0.7;` : size === "large" && `scale: 1.5;`}
+    display: flex;
     ${rotated && `transform: rotate(-90deg);`}
   `}
 `;
 
-export const ArrowDown = ({ rotated, color, size }: IconProps) => {
+export const ArrowDown = ({ rotated, size }: IconProps) => {
   return (
-    <Wrapper color={color} size={size} rotated={rotated}>
+    <Wrapper size={size} rotated={rotated}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="25"

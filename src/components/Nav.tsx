@@ -24,11 +24,12 @@ const NavList = styled.ul`
 
 const NavItem = styled.li`
   font-size: 0.8rem;
+  cursor: pointer;
 
   & a {
     color: #f5f5f7;
     text-decoration: none;
-    transition: color 0.25s;
+    transition: color 0.2s;
   }
 
   & a:hover {
@@ -36,9 +37,17 @@ const NavItem = styled.li`
   }
 `;
 
-const Logo = styled.div`
+type LogoProps = {
+  showLogo: boolean;
+};
+const Logo = styled.div<LogoProps>`
+  ${({ showLogo }) => showLogo && "display: block"}
+  display: none;
+  position: fixed;
   color: #fa4a7f;
   font-size: 1.25rem;
+  left: 10%;
+  cursor: pointer;
 `;
 
 type NavProps = {
@@ -81,17 +90,15 @@ const Nav = ({ headerList }: NavProps) => {
   return (
     <>
       <Header>
-        {showLogo && (
-          <Logo onClick={scrollToTop}>
-            <b>Hi, I'm Kaio!</b>
-          </Logo>
-        )}
+        <Logo onClick={scrollToTop} showLogo={showLogo}>
+          <b>Hi, I'm Kaio!</b>
+        </Logo>
         <NavList>
           {headerList.map((h, i) => (
             <NavItem key={i}>
-              <div key={i} onClick={() => scrollToSection(`#section${i + 1}`)}>
+              <a key={i} onClick={() => scrollToSection(`#section${i + 1}`)}>
                 {h}
-              </div>
+              </a>
 
               {/* <a href={"#section" + (i + 1)}>{h}</a> */}
             </NavItem>

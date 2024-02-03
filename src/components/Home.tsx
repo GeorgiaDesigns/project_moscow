@@ -5,10 +5,10 @@ import { LinkedIn } from "./Content/LinkedIn";
 import { Mail } from "./Content/Mail";
 import Work from "./Sections/Work";
 import { Gutter } from "./Content/Gutter";
-import { ArrowDown } from "./Content/ArrowDown";
 import Font from "./Typography";
 import Background from "./Background";
 import Contact from "./Sections/Contact";
+import Button from "./Button";
 
 const Grid = styled.div`
   display: grid;
@@ -51,33 +51,33 @@ const Intro = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   align-items: flex-end;
+  gap: 0.75rem;
+  // & a {
+  //   cursor: pointer;
+  //   text-decoration: none;
+  // }
 
-  & a {
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  & svg {
-    scale: 0.8;
-  }
+  // & svg {
+  //   scale: 0.8;
+  // }
 `;
 
-const BookMe = styled.a`
-  background-color: #fa4a7f;
-  border-radius: 1.6875rem;
-  padding: 0.4rem 1rem;
-  color: #f5f5f7;
-  height: 2.35rem;
-  display: flex;
-  align-items: center;
-  transition: background-color 0.5s;
-  margin-right: 0.5rem;
+// const BookMe = styled.a`
+//   background-color: #fa4a7f;
+//   border-radius: 1.6875rem;
+//   padding: 0.4rem 1rem;
+//   color: #f5f5f7;
+//
+//   display: flex;
+//   align-items: center;
+//   transition: background-color 0.2s;
+//   margin-right: 0.5rem;
 
-  &:hover {
-    background-color: #f5f5f7;
-    color: #fa4a7f;
-  }
-`;
+//   &:hover {
+//     background-color: #f5f5f7;
+//     color: #fa4a7f;
+//   }
+// `;
 
 const Home = () => {
   return (
@@ -99,20 +99,34 @@ const Home = () => {
           </Font>
 
           <ButtonContainer>
-            <BookMe href="http://kaio.youcanbook.me/" target="_blank">
+            <Button
+              filled
+              onClick={() =>
+                window.open("http://kaio.youcanbook.me/", "_blank")
+              }
+            >
               Book a call
-            </BookMe>
-            <a href="https://www.linkedin.com/in/kaiohsdias/" target="_blank">
-              <LinkedIn hasOutline color="#fa4a7f" />
-            </a>
-            <a
+            </Button>
+            <Button
+              rounded
               title={"Copiar e-mail"}
+              backgroundColor="primaryLight"
               onClick={() => {
                 navigator.clipboard.writeText("kaiohsdias@proton.me");
               }}
             >
-              <Mail hasOutline color="#fa4a7f" />
-            </a>
+              <Mail size="small" />
+            </Button>
+
+            <Button
+              rounded
+              backgroundColor="primaryLight"
+              onClick={() =>
+                window.open("https://www.linkedin.com/in/kaiohsdias/", "_blank")
+              }
+            >
+              <LinkedIn size="small" />
+            </Button>
           </ButtonContainer>
         </Intro>
       </Section>
@@ -150,10 +164,7 @@ const Home = () => {
       >
         <Flowers />
         <a href="/assets/Resume.pdf" download="Resume_KaioDias.pdf">
-          <button>
-            <b>Resumé</b>
-            <ArrowDown color="#f5f5f7" />
-          </button>
+          <Button hasIcon>Resume</Button>
         </a>
       </Section>
       <Section id="section1">

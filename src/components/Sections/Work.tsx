@@ -5,6 +5,7 @@ import { Projects } from "../../data/projects";
 import VideoContent from "../VideoContent";
 import { ArrowDown } from "../Content/ArrowDown";
 import Font from "../Typography";
+import Button from "../Button";
 
 const TextContainer = styled.div`
   display: flex;
@@ -55,10 +56,10 @@ const Work = () => {
               {p.description}
             </Font>
 
-            <button onClick={() => redirectToProject(p.id)}>
+            <Button onClick={() => redirectToProject(p.id)}>
               See more
-              <ArrowDown color="#f5f5f7" rotated />
-            </button>
+              <ArrowDown rotated size="small" />
+            </Button>
           </div>
           <div style={{ position: "relative", width: "100vw" }}>
             <BackgroundImg src={"./assets/desktop.png"} />
