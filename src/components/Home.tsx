@@ -14,58 +14,158 @@ const Section = styled.section`
   position: relative;
 `;
 
-const Image = styled.img`
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+const Hero = styled.section`
+  width: 100vw;
+  height: 300vh;
+  position: relative;
 `;
-const Projects = styled.div`
-  height: 100%;
 
-  background: #cecece;
+const Projects = styled.section`
+  height: 100vh;
+  width: 300%;
+  position: relative;
+  display: flex;
+`;
+
+const Project = styled.div`
+  background: #242424;
+  width: 100vw;
+`;
+
+const Canvas = styled.canvas`
+  position: fixed;
+  left: 50%;
+  bottom: -30%;
+  transform: translate(-50%, -50%);
+  max-width: 100vw;
+  max-height: 60vh;
 `;
 
 const Home = () => {
-  const viewerRef = useRef(null);
-  const sceneRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const sequence = { frame: 0 };
+  const images = useRef<HTMLImageElement[]>([]);
+  const frameCount = 20;
+
+  const projectsRef = useRef<HTMLElement | null>(null);
+
+  function render() {
+    const canvas = canvasRef.current;
+    if (canvas) {
+      const context = canvas.getContext("2d");
+      if (context) {
+        scaleImage(images.current[sequence.frame], context);
+      }
+    }
+  }
+
+  function scaleImage(img: HTMLImageElement, ctx: CanvasRenderingContext2D) {
+    const canvas = ctx.canvas;
+    const hRatio = canvas.width / img.width;
+    const vRatio = canvas.height / img.height;
+    const ratio = Math.max(hRatio, vRatio) * 0.6;
+    const centerShift_x = (canvas.width - img.width * ratio) / 2;
+    const centerShift_y = (canvas.height - img.height * ratio) / 2;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(
+      img,
+      0,
+      0,
+      img.width,
+      img.height,
+      centerShift_x,
+      centerShift_y,
+      img.width * ratio,
+      img.height * ratio
+    );
+  }
 
   useGSAP(
     () => {
-      const frame_count = 16;
-      const offset_value = 800;
+      const canvas = canvasRef.current;
+      if (!canvas) return;
 
-      gsap.to(viewerRef.current, {
-        left: -offset_value * frame_count + "px",
-        // scale: offset_value / 100,
-        ease: `steps(${frame_count})`,
+      const context = canvas.getContext("2d");
+      if (!context) return;
+
+      const projectSection = projectsRef.current;
+      if (!projectSection) return;
+
+      canvas.width = 1158;
+      canvas.height = 770;
+
+      const currentFrame = (index: number) =>
+        `https://raw.githubusercontent.com/GeorgiaDesigns/img-sequence/main/ezgif-frame-${(
+          index + 1
+        )
+          .toString()
+          .padStart(3, "0")}.png`;
+
+      for (let i = 0; i < frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+        images.current.push(img);
+      }
+
+      images.current[0].onload = render;
+
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: sceneRef.current,
-          start: "top top",
-          end: "+=" + frame_count * offset_value, //bottom 5%"
+          trigger: canvas,
+          end: `1000px`,
+          scrub: 0.1,
+        },
+      });
+
+      tl.to(
+        sequence,
+        {
+          frame: frameCount - 1,
+          snap: "frame",
+          ease: "none",
+          onUpdate: render,
+          duration: 1,
+        },
+        0
+      ).to(
+        canvas,
+        {
+          scale: 1.5,
+          bottom: "-10%",
+          ease: "power2.inOut",
+          duration: 1,
+        },
+        0
+      );
+
+      gsap.to(projectSection, {
+        xPercent:
+          -100 * (document.querySelectorAll("#section1 > div").length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: projectSection,
           pin: true,
-          scrub: true,
+          scrub: 1,
+          snap: 1 / (document.querySelectorAll("#section1 > div").length - 1),
+          start: "top top",
+          end: "+=3000",
         },
       });
     },
-    { scope: sceneRef }
+    { scope: canvasRef }
   );
 
   return (
     <>
-      <Section className="scene" ref={sceneRef}>
-        <Image src="/assets/eat-you-sprite.png" ref={viewerRef}></Image>
-      </Section>
+      <Hero>
+        <Canvas ref={canvasRef}></Canvas>
+      </Hero>
 
-      <Section id="section1">
-        <Projects>
-          <div>End</div>
-        </Projects>
-      </Section>
+      <Projects id="section1" ref={projectsRef}>
+        <Project>Project1</Project>
+        <Project>Project1</Project>
+        <Project>Project1</Project>
+      </Projects>
 
       <Section id="section2">
         <Projects>
@@ -74,48 +174,6 @@ const Home = () => {
       </Section>
     </>
   );
-
-  // const html = document.documentElement;
-  // const canvas = document.getElementById("hero-lightpass");
-  // const context = canvas.getContext("2d");
-
-  // const frameCount = 20;
-  // const currentFrame = (index) =>
-  //   `https://raw.githubusercontent.com/GeorgiaDesigns/img-sequence/main/ezgif-frame-0${index.toString()}.png`;
-
-  // const preloadImages = () => {
-  //   for (let i = 1; i < frameCount; i++) {
-  //     const img = new Image();
-  //     img.src = currentFrame(i);
-  //   }
-  // };
-
-  // const img = new Image();
-  // img.src = currentFrame(1);
-  // canvas.width = 1158;
-  // canvas.height = 770;
-  // img.onload = function () {
-  //   context.drawImage(img, 0, 0);
-  // };
-
-  // const updateImage = (index) => {
-  //   img.src = currentFrame(index);
-  //   context.drawImage(img, 0, 0);
-  // };
-
-  // window.addEventListener("scroll", () => {
-  //   const scrollTop = html.scrollTop;
-  //   const maxScrollTop = html.scrollHeight - window.innerHeight;
-  //   const scrollFraction = scrollTop / maxScrollTop;
-  //   const frameIndex = Math.min(
-  //     frameCount - 1,
-  //     Math.ceil(scrollFraction * frameCount)
-  //   );
-
-  //   requestAnimationFrame(() => updateImage(frameIndex + 1));
-  // });
-
-  // preloadImages();
 };
 
 export default Home;
