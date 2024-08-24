@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Poppins";
-  src: url(./fonts/Poppins-Medium.ttf);
+  src: url(./fonts/kremlin.ttf);
 }
 
 @font-face {
@@ -9,7 +9,8 @@
 }
 
 :root {
-  font-family: Poppins, Helvetica, Arial, sans-serif;
+  font-family: kremlin, JetBrains Mono, Helvetica, Arial, sans-serif;
+  color: #131f8b;
   line-height: 1.5;
   text-align: left;
   scroll-behavior: smooth;
