@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import "react-toastify/dist/ReactToastify.css";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Hero } from "./Content/Hero";
@@ -13,11 +13,6 @@ const Section = styled.section`
   width: 100%;
   background: #cecece;
   overflow: hidden;
-  position: relative;
-`;
-
-const Main = styled.section`
-  width: 100vw;
   position: relative;
 `;
 
@@ -40,8 +35,8 @@ const Canvas = styled.canvas`
   left: 50%;
   bottom: -30%;
   transform: translate(-50%, -50%);
-  //max-width: 100vw;
-  // max-height: 60vh;
+  max-width: 100vw;
+  //max-height: 60vh;
 `;
 
 // const Header = styled.div`
@@ -80,7 +75,6 @@ const Home = () => {
     if (canvasRef.current) {
       const context = canvasRef.current.getContext("2d");
       if (context) {
-        console.log(sequence);
         scaleImage(images.current[sequence.frame], context);
       }
     }
@@ -115,94 +109,107 @@ const Home = () => {
     );
   }
 
-  useGSAP(
-    () => {
-      const parent = heroRef.current;
-      const canvas = canvasRef.current;
-      const projectSection = projectsRef.current;
+  useGSAP(() => {
+    const parent = heroRef.current;
+    const canvas = canvasRef.current;
+    const projectSection = projectsRef.current;
 
-      if (!parent || !canvas || !projectSection) return;
-      const context = canvas.getContext("2d");
-      if (!context) return;
+    if (!parent || !canvas || !projectSection) return;
+    const context = canvas.getContext("2d");
+    if (!context) return;
 
-      canvas.width = 1158;
-      canvas.height = 770;
+    canvas.width = 1158;
+    canvas.height = 770;
 
-      const currentFrame = (index: number) =>
-        `https://raw.githubusercontent.com/GeorgiaDesigns/img-sequence/main/ezgif-frame-${(
-          index + 5
-        )
-          .toString()
-          .padStart(3, "0")}.svg`;
+    const currentFrame = (index: number) =>
+      `https://raw.githubusercontent.com/GeorgiaDesigns/img-sequence/main/ezgif-frame-${(
+        index + 5
+      )
+        .toString()
+        .padStart(3, "0")}.svg`;
 
-      for (let i = 0; i < frameCount; i++) {
-        const img = new Image();
-        img.src = currentFrame(i);
-        images.current.push(img);
-        console.log(img.src);
-      }
+    for (let i = 0; i < frameCount; i++) {
+      const img = new Image();
+      img.src = currentFrame(i);
+      images.current.push(img);
+    }
 
-      images.current[0].onload = render;
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: parent,
+        endTrigger: projectSection,
+        end: "bottom top",
+        scrub: 0.1,
+      },
+    });
 
-      const tl = gsap.timeline({
+    tl.to(
+      sequence,
+      {
+        frame: frameCount - 1,
+        snap: "frame",
+        ease: "none",
+        onUpdate: render,
+        duration: 0.5,
         scrollTrigger: {
-          trigger: parent,
-          end: `1000px`,
           scrub: 0.1,
         },
-      });
-
-      tl.to(
-        sequence,
+      },
+      0
+    )
+      .to(
+        canvas,
         {
-          frame: frameCount - 1,
-          snap: "frame",
-          ease: "none",
-          onUpdate: render,
+          scale: 2.5,
+          //bottom: "-10%",
+          ease: "power2.inOut",
           duration: 1,
         },
         0
       )
-        .to(
-          canvas,
-          {
-            scale: 2.5,
-            bottom: "-10%",
-            ease: "power2.inOut",
-            duration: 1,
-          },
-          0
-        )
-        .to(
-          parent,
-          {
-            backgroundColor: "#252525",
-            ease: "none",
-            duration: 0.5,
-            delay: 0.5,
-          },
-          0
-        );
-
-      gsap.to(projectSection, {
-        xPercent: -100 * (projectSection.children.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: projectSection,
-          pin: true,
-          scrub: 1,
-          snap: 1 / (projectSection.children.length - 1),
-          start: "top top",
-          end: "+=3000",
+      .to(
+        parent,
+        {
+          backgroundColor: "#252525",
+          ease: "none",
+          duration: 0.5,
+          delay: 0.5,
         },
-      });
-    },
-    { scope: heroRef }
-  );
+        0
+      );
+
+    // gsap.to(projectSection, {
+    //   xPercent: -100 * (projectSection.children.length - 1),
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: projectSection,
+    //     pin: true,
+    //     scrub: 1,
+    //     snap: 1 / (projectSection.children.length - 1),
+    //     start: "top top",
+    //     end: "+=3000",
+    //   },
+    // });
+  });
+
+  useEffect(() => {
+    const img = images.current[0];
+    if (img && img.complete) {
+      render();
+    } else {
+      img.onload = render;
+    }
+
+    return () => {
+      if (img) {
+        img.onload = null;
+      }
+    };
+  });
 
   return (
-    <Main ref={heroRef}>
-      <Section style={{ height: "200vh" }}>
+    <>
+      <Section ref={heroRef} style={{ height: "300vh" }}>
         {/* <Header>
           GEORGIA <hr />
         </Header>
@@ -229,7 +236,7 @@ const Home = () => {
         <Canvas ref={canvasRef}></Canvas>
       </Section>
 
-      <Projects id="section1" ref={projectsRef}>
+      <Projects className="section1" ref={projectsRef}>
         <Rasgo />
         <Project>Project1</Project>
         <Project>Project1</Project>
@@ -239,7 +246,7 @@ const Home = () => {
       <Section id="section2">
         <div>slide</div>
       </Section>
-    </Main>
+    </>
   );
 };
 

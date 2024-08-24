@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  width: 100vw;
-
-  svg > {
-    width: 100%;
+  svg {
+    width: -webkit-fill-available;
+    height: max-content;
   }
 `;
 
