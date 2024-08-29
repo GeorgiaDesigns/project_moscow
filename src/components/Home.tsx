@@ -4,63 +4,36 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Hero } from "./Content/Hero";
-import { Rasgo } from "./Content/Rasgo";
+import Collage from "./Collage";
+import ProjectPreview from "./ProjectPreview";
 
 gsap.registerPlugin(useGSAP);
 
 const Section = styled.section`
   height: 100vh;
-  width: 100%;
-  background: #cecece;
+  position: sticky;
+  top: 0;
   overflow: hidden;
-  position: relative;
 `;
 
 const Projects = styled(Section)`
-  height: 100vh;
-  width: 300vw;
-  position: relative;
+  width: fit-content;
   display: flex;
-  background-image: url("./assets/halftone.png"); //<a href="https://www.freepik.com/free-vector/black-wave-halftone-background_7647150.htm#query=halftone&position=0&from_view=keyword&track=ais_hybrid&uuid=ebd689d3-dd4b-45e0-a4f7-448e29a96abe">Image by alicia_mb</a> on Freepik
-  background-size: contain;
-  background-color: #252525;
-`;
-
-const Project = styled.div`
-  width: 100vw;
+  //background-image: url("./assets/halftone.png"); //<a href="https://www.freepik.com/free-vector/black-wave-halftone-background_7647150.htm#query=halftone&position=0&from_view=keyword&track=ais_hybrid&uuid=ebd689d3-dd4b-45e0-a4f7-448e29a96abe">Image by alicia_mb</a> on Freepik
+  background-image: url("./assets/rasgo.svg");
+  flex-wrap: wrap;
 `;
 
 const Canvas = styled.canvas`
-  position: fixed;
+  position: absolute;
+  z-index: 1;
   left: 50%;
-  bottom: -30%;
+  bottom: -20%;
   transform: translate(-50%, -50%);
   max-width: 100vw;
-  //max-height: 60vh;
+  max-height: 60vh;
+  opacity: 1;
 `;
-
-// const Header = styled.div`
-//   transform: rotate(-45deg);
-//   font-size: 12rem;
-
-//   position: relative;
-//   z-index: 1;
-// `;
-
-// const Description = styled.div`
-//   h2 {
-//     margin: auto;
-//   }
-//   transform: rotate(45deg);
-//   font-size: 1.1rem;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: flex-end;
-//   width: fit-content;
-//   left: 70%;
-//   position: relative;
-//   z-index: 1;
-// `;
 
 const Home = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -68,8 +41,6 @@ const Home = () => {
   const sequence = { frame: 0 };
   const images = useRef<HTMLImageElement[]>([]);
   const frameCount = 20;
-
-  const projectsRef = useRef<HTMLElement | null>(null);
 
   function render() {
     if (canvasRef.current) {
@@ -112,9 +83,8 @@ const Home = () => {
   useGSAP(() => {
     const parent = heroRef.current;
     const canvas = canvasRef.current;
-    const projectSection = projectsRef.current;
 
-    if (!parent || !canvas || !projectSection) return;
+    if (!parent || !canvas) return;
     const context = canvas.getContext("2d");
     if (!context) return;
 
@@ -136,10 +106,11 @@ const Home = () => {
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: parent,
-        endTrigger: projectSection,
-        end: "bottom top",
-        scrub: 0.1,
+        trigger: canvas,
+        scrub: true,
+        pin: true,
+        start: "center 55%",
+        end: "+=800",
       },
     });
 
@@ -150,46 +121,44 @@ const Home = () => {
         snap: "frame",
         ease: "none",
         onUpdate: render,
-        duration: 0.5,
-        scrollTrigger: {
-          scrub: 0.1,
-        },
+        duration: 3,
       },
       0
     )
       .to(
         canvas,
         {
-          scale: 2.5,
-          //bottom: "-10%",
+          scale: 2,
+          bottom: "-10%",
           ease: "power2.inOut",
-          duration: 1,
+          //opacity: 0.5,
+          duration: 2,
         },
-        0
+        "<"
+      )
+      .to(
+        canvas,
+        {
+          display: "none",
+        },
+        3
       )
       .to(
         parent,
         {
-          backgroundColor: "#252525",
-          ease: "none",
-          duration: 0.5,
-          delay: 0.5,
+          position: "relative",
         },
-        0
+        2
       );
-
-    // gsap.to(projectSection, {
-    //   xPercent: -100 * (projectSection.children.length - 1),
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: projectSection,
-    //     pin: true,
-    //     scrub: 1,
-    //     snap: 1 / (projectSection.children.length - 1),
-    //     start: "top top",
-    //     end: "+=3000",
+    // .to(
+    //   parent,
+    //   {
+    //     backgroundColor: "#252525",
+    //     ease: "none",
+    //     duration: 0.5,
     //   },
-    // });
+    //   1
+    // );
   });
 
   useEffect(() => {
@@ -208,45 +177,41 @@ const Home = () => {
   });
 
   return (
-    <>
-      <Section ref={heroRef} style={{ height: "300vh" }}>
-        {/* <Header>
-          GEORGIA <hr />
-        </Header>
-        <Description>
-          <h2>web developer</h2>
-          frontend | web3 | design
-        </Description>
-        <svg
-          width="1366"
-          height="765"
-          viewBox="0 0 1366 765"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ position: "absolute", top: 0 }}
-        >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M608.19 0L1366 733.212V765H1279.88L0 201.923V148.663L99.9007 0H608.19Z"
-            fill="#1E1E1E"
-          />
-        </svg> */}
+    <div className="wrapper">
+      <Canvas ref={canvasRef}></Canvas>
+
+      <Section ref={heroRef} style={{ height: "200vh" }}>
         <Hero />
-        <Canvas ref={canvasRef}></Canvas>
       </Section>
 
-      <Projects className="section1" ref={projectsRef}>
-        <Rasgo />
-        <Project>Project1</Project>
-        <Project>Project1</Project>
-        <Project>Project1</Project>
+      <Projects className="section1">
+        <ProjectPreview
+          content={[
+            {
+              src: "./assets/ProjectFrames/project1.png",
+              description:
+                "THIS IS TELEVISION Lorem ipsum dolor sit amet, consecgh tetur adipi scing elit, ",
+            },
+            {
+              src: "./assets/ProjectFrames/project2.png",
+              description:
+                "sed do eiusmod tempor asrasrincididunt ut labore et dolore magna aliqua.  ",
+            },
+          ]}
+        ></ProjectPreview>
       </Projects>
 
       <Section id="section2">
-        <div>slide</div>
+        <Collage
+          images={[
+            "./assets/Cutouts/1.png",
+            "./assets/Cutouts/2.png",
+            "./assets/Cutouts/3.png",
+            "./assets/Cutouts/central-1.png",
+          ]}
+        />
       </Section>
-    </>
+    </div>
   );
 };
 

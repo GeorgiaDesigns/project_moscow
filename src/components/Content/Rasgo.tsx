@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+  // position: relative;
+  bottom: -90vh;
   width: 100vw;
+  // z-index: 2;
 
-  svg > {
-    width: 100%;
+  svg {
+    width: -webkit-fill-available;
+    height: max-content;
   }
 `;
 
