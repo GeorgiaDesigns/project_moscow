@@ -124,32 +124,17 @@ const Home = () => {
         duration: 3,
       },
       0
-    )
-      .to(
-        canvas,
-        {
-          scale: 2,
-          bottom: "-10%",
-          ease: "power2.inOut",
-          //opacity: 0.5,
-          duration: 2,
-        },
-        "<"
-      )
-      .to(
-        canvas,
-        {
-          display: "none",
-        },
-        3
-      )
-      .to(
-        parent,
-        {
-          position: "relative",
-        },
-        2
-      );
+    ).to(
+      canvas,
+      {
+        scale: 2,
+        bottom: "-10%",
+        ease: "power2.inOut",
+        //opacity: 0.5,
+        duration: 2,
+      },
+      "<"
+    );
     // .to(
     //   parent,
     //   {
@@ -197,9 +182,33 @@ const Home = () => {
               description:
                 "sed do eiusmod tempor asrasrincididunt ut labore et dolore magna aliqua.  ",
             },
+            {
+              src: "./assets/ProjectFrames/1.png",
+              description:
+                "sed do eiusmod tempor asrasrincididunt ut labore et dolore magna aliqua.  ",
+            },
+            {
+              src: "./assets/ProjectFrames/2.png",
+              description:
+                "sed do eiusmod tempor asrasrincididunt ut labore et dolore magna aliqua.  ",
+            },
+            {
+              src: "./assets/ProjectFrames/3.png",
+              description:
+                "sed do eiusmod tempor asrasrincididunt ut labore et dolore magna aliqua.  ",
+            },
+            {
+              src: "./assets/ProjectFrames/4.png",
+              description:
+                "sed do eiusmod tempor asrasrincididunt ut labore et dolore magna aliqua.  ",
+            },
           ]}
         ></ProjectPreview>
       </Projects>
+
+      <Section id="section2">
+        <p>sdfsdfsedsfsd</p>{" "}
+      </Section>
 
       <Section id="section2">
         <Collage

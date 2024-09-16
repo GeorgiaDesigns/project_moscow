@@ -6,13 +6,14 @@ import gsap from "gsap";
 gsap.registerPlugin(useGSAP);
 
 const Wrapper = styled.div`
-  width: fit-content;
+  width: -webkit-fill-available;
   display: flex;
+  align-items: center;
 `;
 
 const TV = styled.img`
-  width: 60%;
-
+  width: 40rem;
+  margin: 10rem;
   &: hover {
     cursor: pointer;
   }
@@ -47,7 +48,7 @@ const ProjectPreview = ({ content }: ImageGalleryProps) => {
         pin: true,
         scrub: 1,
         // snap: 1 / (projectSection.children.length - 1),
-        start: "center 60%",
+        start: "top top",
         end: () => "+=" + projectSection.offsetWidth,
       },
     });

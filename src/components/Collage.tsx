@@ -1,7 +1,8 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styled from "styled-components";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,7 +15,7 @@ const CutoutImage = styled.img`
 
 const CollageSection = styled.div`
   position: relative;
-  height: 300vh; /* Make section tall to allow scrolling */
+  height: 500vh;
   overflow: hidden;
 `;
 
@@ -34,7 +35,7 @@ interface CollageProps {
 const Collage: React.FC<CollageProps> = ({ images }) => {
   const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
 
-  useEffect(() => {
+  useGSAP(() => {
     imageRefs.current.forEach((img, i) => {
       gsap.fromTo(
         img,
@@ -52,13 +53,13 @@ const Collage: React.FC<CollageProps> = ({ images }) => {
           scrollTrigger: {
             trigger: img,
             start: "top bottom",
-            end: "center center",
+            end: "bottom bottom",
             scrub: true,
           },
         }
       );
     });
-  }, [images]);
+  });
 
   return (
     <CollageSection>
