@@ -47,7 +47,7 @@ const ProjectPreview = ({ content }: ImageGalleryProps) => {
         trigger: projectSection,
         pin: true,
         scrub: 1,
-        // snap: 1 / (projectSection.children.length - 1),
+        snap: 0.1,
         start: "top top",
         end: () => "+=" + projectSection.offsetWidth,
       },
