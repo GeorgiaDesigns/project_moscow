@@ -1,60 +1,17 @@
-import styled from "styled-components";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Hero } from "./Content/Hero";
-import Collage from "./Collage";
-import ProjectPreview from "./ProjectPreview";
+import { Hero } from "../components/Content/Hero";
+import Collage from "../components/Collage";
+import ProjectPreview from "../components/ProjectPreview";
+import { Canvas, Overlay, Projects, Section, Tagline } from "./home.styles";
 
 gsap.registerPlugin(useGSAP);
 
-const Section = styled.section`
-  position: relative;
-  height: 100vh;
-  top: 0;
-  overflow: hidden;
-`;
-
-const Tagline = styled(Section)`
-  position: sticky;
-  opacity: 0;
-  z-index: 5;
-  background-color: #252525;
-  font-size: 10rem;
-  height: 300vh;
-  color: #fff;
-  overflow: hidden;
-`;
-
-const Overlay = styled.img`
-  position: fixed;
-  opacity: 0.1;
-  z-indez: 10;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-`;
-
-const Projects = styled(Section)`
-  width: fit-content;
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const Canvas = styled.canvas`
-  position: absolute;
-  z-index: 1;
-  max-width: 100vw;
-  max-height: 100vh;
-`;
-
 const Home = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const heroRef = useRef<HTMLImageElement | null>(null);
+  const tagLineSectionRef = useRef<HTMLImageElement | null>(null);
   const sequence = { frame: 0 };
   const images = useRef<HTMLImageElement[]>([]);
   const frameCount = 21;
@@ -98,7 +55,7 @@ const Home = () => {
   }
 
   useGSAP(() => {
-    const tagline = heroRef.current;
+    const taglineSection = tagLineSectionRef.current;
     const canvas = canvasRef.current;
 
     if (!parent || !canvas) return;
@@ -150,7 +107,7 @@ const Home = () => {
         1
       )
       .to(
-        tagline,
+        taglineSection,
         {
           opacity: 1,
           ease: "power2.inOut",
@@ -161,12 +118,12 @@ const Home = () => {
       .fromTo(
         ".elipse",
         {
-          scale: 0.2,
-          translateX: "-2vw",
-          translateY: "25vh",
+          scale: 0,
+          x: -2,
+          y: 100,
         },
         {
-          scale: 1.2,
+          scale: 1.3,
           ease: "power2.inOut",
           duration: 3,
         },
@@ -175,8 +132,9 @@ const Home = () => {
       .fromTo(
         ".blueTriangle",
         {
-          scale: 0.2,
-          transform: "translate(-10vw, 30vh)",
+          scale: 0,
+          x: 500,
+          y: 350,
         },
         {
           scale: 1.2,
@@ -188,62 +146,73 @@ const Home = () => {
       .fromTo(
         ".blackTriangle2",
         {
-          translateX: "-120vw",
-          translateY: "-10vh",
+          x: -500,
+          y: 0,
         },
         {
-          translateX: "-108vw",
-          translateY: "0vh",
-          ease: "none",
-          duration: 2,
+          x: -100,
+          y: 200,
+          duration: 5,
         },
         3
       )
       .fromTo(
         ".blackTriangle1",
         {
-          translateX: "-100vw",
-          translateY: "30vh",
-          transform: "rotate(-10deg)",
+          x: -100,
+          y: 400,
+          transform: "rotate(-20deg)",
         },
         {
-          translateX: "-40vw",
-          translateY: "-25vh",
+          x: 900,
+          y: 180,
           transform: "rotate(0deg)",
           scale: 1.2,
-
           ease: "none",
-          duration: 1,
+          duration: 1.5,
         },
-        4
+        3
       )
       .fromTo(
-        ".elipse2",
+        ".miniWhiteCircle",
         {
           scale: 0,
-          translateX: "-60vw",
-          // translateY: "-20vh",
+          x: 1050,
+          y: -150,
         },
         {
           scale: 0.1,
           ease: "none",
           duration: 1,
         },
-        5
+        4
+      )
+       .fromTo(
+        ".underline",
+        {
+          x: 1000,
+          y: 700,
+        },
+        {
+          x: 500,
+          scaleX: 1.3,
+          duration: 2,
+        },
+       4
       )
       .fromTo(
         ".tagline",
         {
-          translateX: "60vw",
-          translateY: "-30vh",
+          x: 2000,
+          y: 240,
         },
         {
-          translateX: "-160vw",
+          x: -2250,
           ease: "power2.inOut",
           duration: 7,
         },
-        6
-      );
+        4
+      )
     // .to(tagline, { position: "relative" }, 12);
   });
 
@@ -270,8 +239,13 @@ const Home = () => {
         <Hero />
       </Section>
 
-      <Tagline ref={heroRef}>
+      <Tagline ref={tagLineSectionRef}>
+        
+        <h2 className="tagline" style={{ whiteSpace: "nowrap", position: "absolute", zIndex: 10, fontSize: "12rem" }}>
+          POWERED BY CAFFEINE AND CTRL-Z
+        </h2>
         <svg
+          style={{  position: "absolute", zIndex: 8 }}
           className="elipse"
           width="641"
           height="641"
@@ -282,6 +256,7 @@ const Home = () => {
           <circle cx="320.5" cy="320.5" r="320.5" fill="#CECECE" />
         </svg>
         <svg
+                style={{  position: "absolute", zIndex: 8 }}
           className="blueTriangle"
           width="978"
           height="434"
@@ -296,6 +271,7 @@ const Home = () => {
         </svg>
 
         <svg
+        style={{  position: "absolute", zIndex: 8 }}
           className="blackTriangle1"
           width="359"
           height="51"
@@ -310,6 +286,7 @@ const Home = () => {
         </svg>
 
         <svg
+          style={{  position: "absolute", zIndex: 8 }}
           className="blackTriangle2"
           width="364"
           height="231"
@@ -324,7 +301,23 @@ const Home = () => {
         </svg>
 
         <svg
-          className="elipse2"
+          style={{
+            position: "absolute",
+            zIndex: 8,
+          }}
+          className="underline"
+          width="1146"
+          height="17"
+          viewBox="0 0 1146 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="1146" height="17" fill="#131F8B" />
+        </svg>
+
+        <svg
+          style={{  position: "absolute", zIndex: 8 }}
+          className="miniWhiteCircle"
           width="641"
           height="641"
           viewBox="0 0 641 641"
@@ -334,25 +327,9 @@ const Home = () => {
           <circle cx="320.5" cy="320.5" r="320.5" fill="#CECECE" />
         </svg>
 
-        <h1 className="tagline" style={{ whiteSpace: "nowrap" }}>
-          POWERED BY CAFFEINE AND CTRL-Z
-        </h1>
-        <svg
-          className="blueTriangle"
-          width="978"
-          height="434"
-          viewBox="0 0 978 434"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M254.24 433.76L977.658 8.85957L-5.5742e-06 0.899929L254.24 433.76Z"
-            fill="#131F8B"
-          />
-        </svg>
       </Tagline>
 
-      {/* <Projects className="section1">
+      <Projects className="projectSection">
         <ProjectPreview
           content={[
             {
@@ -387,7 +364,7 @@ const Home = () => {
             },
           ]}
         ></ProjectPreview>
-      </Projects> */}
+      </Projects>
 
       <Section id="section2">
         {" "}

@@ -1,4 +1,4 @@
-import Home from "./components/Home";
+import Home from "./Home/Home";
 // import Layout from "./components/Layout";
 // import ProjectDetail from "./components/ProjectDetail";
 // import { HashRouter, Routes, Route } from "react-router-dom";
