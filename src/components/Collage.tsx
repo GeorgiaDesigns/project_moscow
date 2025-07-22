@@ -14,9 +14,10 @@ const CutoutImage = styled.img`
 `;
 
 const CollageSection = styled.div`
-  position: relative;
-  height: 500vh;
-  overflow: hidden;
+  position: sticky;
+  z-index: 5;
+  overflow: hidden;        
+  background-color: #cecece;
 `;
 
 const CollageContainer = styled.div`
