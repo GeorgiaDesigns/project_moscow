@@ -22,7 +22,7 @@ const TV = styled.img`
 const Description = styled.p`
   position: relative;
   top: 80%;
-  left: 10%;
+  left: 10%; 
   width: 40rem;
 `;
 
