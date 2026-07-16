@@ -1,10 +1,7 @@
 import React, { useRef } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import styled from "styled-components";
 import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const CutoutImage = styled.img`
   position: absolute;
@@ -16,8 +13,8 @@ const CutoutImage = styled.img`
 const CollageSection = styled.div`
   position: sticky;
   z-index: 5;
-  overflow: hidden;        
-  background-color: #cecece;
+  overflow: hidden;
+  background-color: ${({ theme }) => theme.colors.lightGray};
 `;
 
 const CollageContainer = styled.div`

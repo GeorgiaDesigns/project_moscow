@@ -12,10 +12,10 @@ export const Tagline = styled(Section)`
   position: relative; /* Changed from sticky */
   opacity: 0;
   z-index: 5;
-  background-color: #252525;
+  background-color: ${({ theme }) => theme.colors.canvasDark};
   font-size: 10rem;
   height: 100vh;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -44,8 +44,9 @@ export const Projects = styled(Section)`
   width: 100%; /* Changed from fit-content */
   display: flex;
   flex-wrap: wrap;
-  color: #fff;
-  background-color: #1a1a1a; /* Add background so it covers previous sections */
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) =>
+    theme.colors.sectionDark}; /* covers previous sections */
 `;
 
 export const Canvas = styled.canvas`

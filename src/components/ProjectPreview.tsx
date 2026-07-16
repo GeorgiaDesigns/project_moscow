@@ -3,8 +3,6 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-gsap.registerPlugin(useGSAP);
-
 const Wrapper = styled.div`
   width: -webkit-fill-available;
   display: flex;

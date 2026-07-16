@@ -7,6 +7,11 @@ export default {
     primaryDark: "#232846",
     primaryLight: "#F5F5F7",
     textHighlight: "#FA4A7F",
+    brandBlue: "#131F8B",
+    canvasDark: "#252525",
+    sectionDark: "#1a1a1a",
+    lightGray: "#CECECE",
+    white: "#FFFFFF",
   },
   font: {
     family: {

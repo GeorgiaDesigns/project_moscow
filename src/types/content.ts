@@ -25,6 +25,11 @@ export type Project = {
   content: { type: ContentType; data: ContentData }[];
 };
 
+export type ProjectPreviewItem = {
+  src: string;
+  description: string;
+};
+
 export type Quotes = {
   id: number;
   name: string;
